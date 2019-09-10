@@ -1,0 +1,28 @@
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+.btn {
+    color: map-get($color, "btn-color");
+    border: map-get($color, "btn-border-color");
+    display: inline-block;
+    @extend .no-underline;
+    //height: 35px;
+    padding: 5px; 
+    font-weight: $font-weight-600;
+    @extend .txt-align;
+  
+}
+.buynow-price {
+    background-color: map-get($color, "btn-border-color");
+    color: map-get($color, "color-white");
+    font-size: 90%;
+    @include border-radius(2%);
+}
+.text-center  {
+    text-align: center;
+    margin: 5%;
+}
+
+  
