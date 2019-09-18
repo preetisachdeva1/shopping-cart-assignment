@@ -1,7 +1,7 @@
 import { fetchProductsBegin, fetchProductsFailure } from "./categoryAction";
 export const FETCH_PRODUCT_SUCCESS = "FETCH_PRODUCTS_SUCCESS";
 export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
-import  store from  '../store';
+import store from "../store";
 
 export function fetchProducts() {
   return dispatch => {
@@ -15,7 +15,8 @@ export function fetchProducts() {
       })
       .catch(error => dispatch(fetchProductsFailure(error)));
   };
-} // Handle HTTP errors since fetch won't.
+} 
+// Handle HTTP errors since fetch won't.
 function handleErrors(response) {
   if (!response.ok) {
     throw Error(response.statusText);
@@ -26,18 +27,11 @@ export const fetchProductsSuccess = products => ({
   type: FETCH_PRODUCT_SUCCESS,
   payload: { products }
 });
-// export const filterProductsByCategory = categoryID => dispatch({
-//     type: FILTER_PRODUCTS,
-//     payload: categoryID
-// })
 export function filterProductsByCategory(categoryID) {
- // return dispatch => dispatch({ type: FILTER_PRODUCTS, payload: categoryID });
-  console.log("a", categoryID, store.getState().products.categoryId);
-  if(store.getState().products.categoryId == categoryID)  {
-    categoryID = '';
+  if (store.getState().products.categoryId == categoryID) {
+    categoryID = "";
   }
   return dispatch => {
     dispatch({ type: FILTER_PRODUCTS, payload: categoryID });
-  
   };
 }

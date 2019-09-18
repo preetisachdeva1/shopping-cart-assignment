@@ -2,33 +2,29 @@
   * font size define
   */
 
-$font-size : (
+$font-size: (
   "font-size-26": 26px,
   "font-size-15": 15px,
   "font-tablet-para": 14px,
   "font-82": 82%
 );
 
-
 /**
  * Color define
  */
-$color : (
+$color: (
   "btn-primary": #e74646,
   "background-primary": #353535,
   "btn-color": #737373,
-  "btn-border-color": #BF2957,
-  "color-grey-shd": #EAEAEA,
+  "btn-border-color": #bf2957,
+  "color-grey-shd": #eaeaea,
   "color-white": #ffffff,
   "color-grey-border": #d2d7da,
   "color-black": #000000,
   "color-para": #f2f0f0
 );
 
-
 /**
  * Font weight 
  */
- $font-weight-600 : 600;
-
-
+$font-weight-600: 600;

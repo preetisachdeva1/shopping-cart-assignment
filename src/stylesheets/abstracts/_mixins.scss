@@ -8,9 +8,9 @@
 }
 // Box shadow
 @mixin shadow($width, $color) {
-  -webkit-box-shadow: $width $color; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  -moz-box-shadow: $width $color; /* Firefox 3.5 - 3.6 */
-  box-shadow: $width $color; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  -webkit-box-shadow: $width $color;
+  -moz-box-shadow: $width $color;
+  box-shadow: $width $color;
 }
 
 @mixin flex-direction($direction) {
@@ -75,39 +75,40 @@ $breakpoints: (
 @mixin viewport($point) {
   @if map_has_key($breakpoints, $point) {
     $width: map_get($breakpoints, $point);
-      @media (max-width: $width) { @content; }
+    @media (max-width: $width) {
+      @content;
+    }
   }
 }
 
 /* Border
 -------------------------------*/
-@mixin border($width, $color){
-	border:solid $width $color;
+@mixin border($width, $color) {
+  border: solid $width $color;
 }
-
 
 /* Border - Top
 -------------------------------*/
-@mixin border-top($width, $color){
-	border-top:solid $width $color;
+@mixin border-top($width, $color) {
+  border-top: solid $width $color;
 }
 
 /* Border - bottom
 -------------------------------*/
-@mixin border-bottom($width, $color){
-	border-bottom:solid $width $color;
+@mixin border-bottom($width, $color) {
+  border-bottom: solid $width $color;
 }
 
 /* Border - left
 -------------------------------*/
-@mixin border-left($width, $color){
-	border-left:solid $width $color;
+@mixin border-left($width, $color) {
+  border-left: solid $width $color;
 }
 
 /* Border - right
 -------------------------------*/
-@mixin border-right($width, $color){
-	border-right:solid $width $color;
+@mixin border-right($width, $color) {
+  border-right: solid $width $color;
 }
 @mixin font-weight($style: normal) {
   $style: to_lower_case($style);
@@ -132,7 +133,11 @@ $breakpoints: (
     ultrabold: 900,
     ultra-bold: 900
   );
-  font-weight: if(map-has-key($weights, $style), map-get($weights, $style), map-get($weights, normal));
+  font-weight: if(
+    map-has-key($weights, $style),
+    map-get($weights, $style),
+    map-get($weights, normal)
+  );
 }
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;

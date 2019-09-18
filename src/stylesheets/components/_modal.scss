@@ -51,11 +51,12 @@
   height: 11%;
   width: 100%;
   background-color: map-get($color, "color-black");
-  color: white;
+  color: map-get($color, "color-white" );
   @include flexbox();
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 15px;
+  @include align-items(center);
+  @include justify-content(space-between);
+  
+    padding: 0 15px;
 }
 .modal-wrapper {
   margin: 15px 0;
@@ -63,12 +64,12 @@
   height: 350px;
   .lowest-price {
     @include flexbox();
-    font-size: 82%;
-    justify-content: space-around;
+    font-size: map-get($font-size, "font-82");
+    @include justify-content(space-around);
     background-color: white;
     margin: 10px;
     padding: 10px;
-    align-items: center;
+    @include align-items(center);
   }
   .cart-no-item {
     @include flexbox();

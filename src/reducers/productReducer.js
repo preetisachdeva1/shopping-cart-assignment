@@ -7,8 +7,6 @@ const initialState = {
   categoryId: ''
 };
 export default function productReducer(state = initialState, action) {
-  //debugger;
-  //console.log('aaa', action.payload);
   switch (action.type) {
     case FETCH_PRODUCT_SUCCESS:
       return {

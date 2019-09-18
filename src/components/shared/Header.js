@@ -1,5 +1,4 @@
 import React from "react";
-//var Diamond = require('../../assets/img/logo.png');
 import { LOGO_URL } from "../../common/constants/common";
 import { NavLink } from "react-router-dom";
 

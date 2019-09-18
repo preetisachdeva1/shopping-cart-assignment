@@ -1,46 +1,48 @@
 .products-container {
+  @include flexbox();
+  padding: 40px 20px;
+  @include align-items(center);
+  .prod-image {
+    @include flex-grow(1);
+    img {
+      height: 150px;
+      width: auto;
+      margin: 0 5%;
+      @include viewport(small-mobile) {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+      }
+    }
+  }
+  .prod-description {
+    @include flex-grow(2);
+    @extend .txt-align;
     @include flexbox();
-    padding: 40px 20px;
+    @include flex-direction(column);
+    @include justify-content(space-between);
     @include align-items(center);
-    .prod-image {
-        @include flex-grow(1);
-        img {
-            height: 150px;
-            width: auto;
-            margin: 0 5%;
-            @include viewport(small-mobile) {
-                width: 100%;
-                max-width: 250px;
-                height: auto;
-            }
-        }
+    font-size: 94%;
+    .btn {
+      color: map-get($color, "color-white");
+      background-color: map-get($color, "btn-border-color");
+      padding: 10px;
     }
-    .prod-description {
-        @include flex-grow(2);
-        @extend .txt-align;
-        @include flexbox();
-        @include flex-direction(column);
-        @include justify-content(space-between);
-        @include align-items(center);
-        font-size: 94%; 
-        .btn {
-            color: map-get($color, "color-white");
-            background-color: map-get($color, "btn-border-color");
-            padding: 10px;
-        }
-        h2, p {
-            margin-bottom: 20px;
-        }
-        & * {
-            @include viewport(small-mobile){
-                font-size: 84%; margin-bottom : 6px
-             }
-        }
+    h2,
+    p {
+      margin-bottom: 20px;
     }
-    &:nth-child(odd) {
-        @include flex-direction(row);
+    & * {
+      @include viewport(small-mobile) {
+        font-size: 84%;
+        margin-bottom: 6px;
+      }
     }
-    &:nth-child(even) {
-        @include flex-direction(row-reverse);
-    }
+  }
+  &:nth-child(odd) {
+    @include flex-direction(row);
+  }
+  &:nth-child(even) {
+    @include flex-direction(row-reverse);
+  }
 }

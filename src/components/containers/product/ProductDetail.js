@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Header from "../../shared/Header";
-import { PRODUCT_DETAIL_URL } from "../../../common/constants/common";
 import { connect } from "react-redux";
-import { fetchProducts, filterProductsByCategory }  from '../../../actions/productAction';
-import { fetchCategory }  from '../../../actions/categoryAction';
-
+import {
+  fetchProducts,
+  filterProductsByCategory
+} from "../../../actions/productAction";
+import { fetchCategory } from "../../../actions/categoryAction";
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -17,59 +18,70 @@ class ProductDetail extends Component {
   }
   componentDidMount() {
     this.props.fetchProducts();
-    if(!(this.props.categories.length)) {
+    if (!this.props.categories.length) {
       this.props.fetchCategory();
     }
   }
   render() {
-    const { categories, products, filterProductsByCategory, categoryId } = this.props;
+    const {
+      categories,
+      products,
+      filterProductsByCategory,
+      categoryId
+    } = this.props;
     const { error, isLoaded } = this.state;
-    console.log("sdsds", categoryId);
     let productList, categoryList;
-    productList =  products.filter(item => item.category == categoryId || categoryId === '').map(
-      (products, index) => {
+    productList = products
+      .filter(item => item.category == categoryId || categoryId === "")
+      .map((products, index) => {
         return (
           <div key={products.id} className="product-item">
             <h2>{products.name}</h2>
             <div className="item-wrapper">
-              <img src={products.imageURL}/> 
-              <div className="prod-descrip">
-                {products.description}
-              </div>
+              <img src={products.imageURL} />
+              <div className="prod-descrip">{products.description}</div>
             </div>
             <div className="item-wrapper-mobile">
-              <img src={products.imageURL}/> 
+              <img src={products.imageURL} />
               <div className="item-detail-wrapper">
-                <div className="prod-descrip">
-                  {products.description}
+                <div className="prod-descrip">{products.description}</div>
+                <div className="buynow-price btn">
+                  Buy Now @ Rs.{products.price}
                 </div>
-                <div className="buynow-price btn">Buy Now @ Rs.{products.price}</div>
               </div>
             </div>
             <div className="product-price">
               <div className="mrp">MRP Rs.{products.price}</div>
               <div className="btn">Buy Now</div>
             </div>
-            <div className="buynow-price btn">Buy Now @ Rs.{products.price}</div>
+            <div className="buynow-price btn">
+              Buy Now @ Rs.{products.price}
+            </div>
           </div>
         );
-      }
-    );
-    categoryList = categories.filter(item=>item.enabled).map(
-      (category, index) => {
+      });
+    categoryList = categories
+      .filter(item => item.enabled)
+      .map((category, index) => {
         return (
-          <div key={category.id} className={`category-name ${category.id == categoryId ? 'selected-link' : ''}`} onClick={() => filterProductsByCategory(category.id)} >{category.name}</div>
-        )
-    });
+          <div
+            key={category.id}
+            className={`category-name ${
+              category.id == categoryId ? "selected-link" : ""
+            }`}
+            onClick={() => filterProductsByCategory(category.id)}
+          >
+            {category.name}
+          </div>
+        );
+      });
     return (
       <>
         <Header />
         <section>
           <div className="row">
             <div className="product-container">
-              <div className="category-block">
-                {categoryList}
-              </div>
+              <div className="category-block">{categoryList}</div>
               <div className="category-list">{productList}</div>
             </div>
           </div>
@@ -92,7 +104,9 @@ const mapDispatchToProps = dispatch => {
     fetchProducts: () => dispatch(fetchProducts()),
     fetchCategory: () => dispatch(fetchCategory()),
     filterProductsByCategory: id => dispatch(filterProductsByCategory(id))
-  }
-}
-export  default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
-
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductDetail);

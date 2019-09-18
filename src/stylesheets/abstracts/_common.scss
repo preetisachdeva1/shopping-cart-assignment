@@ -1,35 +1,30 @@
-
 .row {
-    max-width: 1140px;
-    margin: 0 auto;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 .btn {
-    color: map-get($color, "btn-color");
-    border: map-get($color, "btn-border-color");
-    display: inline-block;
-    @extend .no-underline;
-    //height: 35px;
-    padding: 5px; 
-    font-weight: $font-weight-600;
-    @extend .txt-align;
-  
+  color: map-get($color, "btn-color");
+  border: map-get($color, "btn-border-color");
+  display: inline-block;
+  @extend .no-underline;
+  padding: 5px;
+  font-weight: $font-weight-600;
+  @extend .txt-align;
 }
 .buynow-price {
-    background-color: map-get($color, "btn-border-color");
-    color: map-get($color, "color-white");
-    font-size: 90%;
-    @include border-radius(2%);
+  background-color: map-get($color, "btn-border-color");
+  color: map-get($color, "color-white");
+  font-size: 90%;
+  @include border-radius(2%);
 }
-.text-center  {
-    text-align: center;
-    margin: 5%;
+.text-center {
+  text-align: center;
+  margin: 5%;
 }
 .text-center-nomargin {
-    text-align: center
+  text-align: center;
 }
 .selected-link {
-    color: #575151 !important;
-    font-weight: 600;
+  color: #575151 !important;
+  font-weight: 600;
 }
-
-  
