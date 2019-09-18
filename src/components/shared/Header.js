@@ -1,22 +1,25 @@
 import React from "react";
 //var Diamond = require('../../assets/img/logo.png');
-import { LOGO_URL }  from '../../common/constants/common';
-
+import { LOGO_URL } from "../../common/constants/common";
+import { NavLink } from "react-router-dom";
 
 const Header = props => {
   return (
     <header className="main-header">
       <div className="logo">
-        <img src={LOGO_URL} alt="logo" />
+        <NavLink to="/">
+          <img src={LOGO_URL} alt="logo" />
+        </NavLink>
       </div>
       <div className="header-nav">
         <div className="nav-one">
-          <a className="btn" href="#">
+          <NavLink className="btn" activeClassName="active-link" to="/home">
             Home
-          </a>
-          <a className="btn" href="#">
-            Products
-          </a>
+          </NavLink>
+
+          <NavLink className="btn" activeClassName="active-link" to="/product">
+            Product
+          </NavLink>
         </div>
       </div>
       <div className="nav-two">

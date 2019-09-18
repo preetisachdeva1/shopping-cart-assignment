@@ -6,7 +6,7 @@ import Routes from '../routes';
 import { ConnectedRouter } from 'connected-react-router';
 import store, { history } from '../store';
 import { Provider } from 'react-redux'
-
+import   Modal  from './containers/modal/modal'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,6 +14,7 @@ ReactDOM.render(
       <div>
         <Routes />
       </div>
+      <Modal/>
     </ConnectedRouter>
   </Provider>, 
   document.getElementById('root')

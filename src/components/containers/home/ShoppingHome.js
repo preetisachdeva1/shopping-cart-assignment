@@ -1,44 +1,32 @@
 import React, { Component } from "react";
 import Header from "../../shared/Header";
 import ProductList from "../../shared/ProductList";
+import { connect } from "react-redux";
+import { fetchCategory }  from '../../../actions/categoryAction';
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      products: [],
-      isLoaded: false,
-      error: null
-    };
+    // this.state = {
+    //   products: [],
+    //   isLoaded: false,
+    //   error: null
+    // };
   }
   componentDidMount() {
-    fetch("http://localhost:3000/categories")
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            products: result,
-          });
-          console.log("dtaa", this.state.products, result);
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
+    this.props.dispatch(fetchCategory());
   }
   render() {
-    const { error, isLoaded, products } = this.state;
+    //const { error, isLoaded, products } = this.state;'
+    const { error, loading, category } = this.props;
+    console.log("nice", category);
     let data;
     if (error) {
         data = <div className="text-center">Error: {error.message}</div>;
-      } else if (!isLoaded) { 
+      } else if (loading) { 
         data = <div className="text-center">Loading...</div>;
     } else {
-        data = products.filter(item=>item.enabled).map(item => (
+        data = category.filter(item=>item.enabled).map(item => (
             <ProductList key={item.id} data={item}/>
           ))
     }
@@ -46,11 +34,20 @@ class Home extends Component {
       <>
         <Header />
         <div className="row">
-            {data}                  
+          {data}                  
         </div>
       </>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  category: state.category.items,
+  loading: state.category.loading,
+  error: state.category.error
+});
+
+
+export  default connect(mapStateToProps)(Home);
+
+//export default Home;

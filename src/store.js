@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
-import reducers from './modules'
+import  reducer  from './reducers';
 
 export const history = createHistory()
 
@@ -26,7 +26,7 @@ const composedEnhancers = compose(
   ...enhancers
 )
 const rootReducer = combineReducers({
-  ...reducers,
+  ...reducer,
   router:connectRouter(history)
 })
 

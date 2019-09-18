@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Header from "../../shared/Header";
 import { PRODUCT_DETAIL_URL } from "../../../common/constants/common";
+import { connect } from "react-redux";
+import { fetchProducts, filterProductsByCategory }  from '../../../actions/productAction';
+import { fetchCategory }  from '../../../actions/categoryAction';
+
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -12,29 +16,17 @@ class ProductDetail extends Component {
     };
   }
   componentDidMount() {
-    fetch("http://localhost:3000/products")
-      .then(res => res.json())
-      .then(result => {
-          this.setState({ isLoaded: true, products: result });
-        },
-        error => {
-          this.setState({ isLoaded: true,  error });
-        }
-      );
-    fetch('http://localhost:3000/categories')
-      .then(res => res.json())
-      .then((data) => {
-        this.setState({ categories: data, isLoaded: true  })
-      })
-      .catch(error => this.setState({
-        isLoaded: true,
-        error
-      }));
+    this.props.fetchProducts();
+    if(!(this.props.categories.length)) {
+      this.props.fetchCategory();
+    }
   }
   render() {
-    const { error, isLoaded, categories, products } = this.state;
+    const { categories, products, filterProductsByCategory, categoryId } = this.props;
+    const { error, isLoaded } = this.state;
+    console.log("sdsds", categoryId);
     let productList, categoryList;
-    productList = products.map(
+    productList =  products.filter(item => item.category == categoryId || categoryId === '').map(
       (products, index) => {
         return (
           <div key={products.id} className="product-item">
@@ -66,7 +58,7 @@ class ProductDetail extends Component {
     categoryList = categories.filter(item=>item.enabled).map(
       (category, index) => {
         return (
-          <div key={category.id} className="category-name">{category.name}</div>
+          <div key={category.id} className={`category-name ${category.id == categoryId ? 'selected-link' : ''}`} onClick={() => filterProductsByCategory(category.id)} >{category.name}</div>
         )
     });
     return (
@@ -87,4 +79,20 @@ class ProductDetail extends Component {
   }
 }
 
-export default ProductDetail;
+const mapStateToProps = state => ({
+  categories: state.category.items,
+  loading: state.category.loading,
+  error: state.category.error,
+  products: state.products.items,
+  categoryId: state.products.categoryId
+});
+const mapDispatchToProps = dispatch => {
+  return {
+    // dispatching actions returned by action creators
+    fetchProducts: () => dispatch(fetchProducts()),
+    fetchCategory: () => dispatch(fetchCategory()),
+    filterProductsByCategory: id => dispatch(filterProductsByCategory(id))
+  }
+}
+export  default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
+

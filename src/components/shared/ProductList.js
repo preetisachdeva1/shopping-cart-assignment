@@ -3,7 +3,6 @@ import { PRODUCT_URL } from '../../common/constants/common';
 
 const ProductList = props => {
   const { data } = props;
-  console.log("props", props,"data", data.imageUrl);
   return (
     <div className="products-container">
       <div className="prod-image">

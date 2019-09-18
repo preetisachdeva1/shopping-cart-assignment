@@ -9,6 +9,7 @@
     }
     .category-name {
       padding: 14px;
+      cursor: pointer;
       color: map-get($color, "btn-color");
       line-height: 145%;
       @include border-bottom(1px, map-get($color, "color-grey-border"));
@@ -28,7 +29,7 @@
       width: 25%;
       margin-bottom: 3%;
       @include border-bottom(1px, map-get($color, "color-grey-border"));
-    
+      @include justify-content(space-between);
     img {
         width: 100%;
         height: auto;

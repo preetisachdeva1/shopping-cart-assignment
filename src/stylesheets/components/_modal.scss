@@ -1,0 +1,128 @@
+.modal {
+  height: 200px;
+  width: 553px;
+  position: fixed;
+  top: 16%;
+  left: 50%;
+  max-width: 100%;
+  height: 524px;
+  max-height: 100%;
+  background-color: map-get($color, "color-grey-shd");
+}
+.modal-content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  @include flexbox();
+  @include flex-direction(column);
+  background-color: map-get($color,"color-grey-shd" );
+  .cart-footer {
+    @extend .text-center-nomargin;
+    margin-bottom: 10px;
+    background-color: map-get($color, "color-white" );
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    &-promo {
+      font-size: map-get($font-size, "font-82");
+      padding: 8px;
+    }
+    &-checkout {
+      margin: 10px;
+      background-color: map-get($color, "btn-border-color");;
+      color: map-get($color, "color-white" );
+      padding: 10px;
+      @include border-radius(3px);
+      @include flexbox();
+      @include justify-content(space-between);
+      cursor: pointer;
+    }
+    &-start-shopping {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+.modal-heading {
+  height: 11%;
+  width: 100%;
+  background-color: map-get($color, "color-black");
+  color: white;
+  @include flexbox();
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+.modal-wrapper {
+  margin: 15px 0;
+  overflow: auto;
+  height: 350px;
+  .lowest-price {
+    @include flexbox();
+    font-size: 82%;
+    justify-content: space-around;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+  }
+  .cart-no-item {
+    @include flexbox();
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32%;
+    .cart-no-item-heading {
+      font-weight: 600;
+      font-size: 110%;
+    }
+    .cart-no-item-heading-fav {
+      font-size: 85%;
+      font-weight: 300;
+    }
+  }
+}
+.modal-items {
+  @include flexbox();
+  background-color: white;
+  height: 80px;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  padding: 10px 15px;
+  align-items: center;
+  img {
+    height: 100%;
+    width: 15%;
+  }
+  .modal-items-quantity {
+    @include flexbox();
+    margin-left: 25px;
+    justify-content: center;
+    flex-grow: 1;
+    flex-direction: column;
+    .product-name {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+  }
+  .product-info {
+    @include flexbox();
+    justify-content: space-between;
+    align-items: center;
+    i {
+      color: #bf2957;
+      font-size: 25px;
+      cursor: pointer;
+    }
+    .icon-close {
+      color: black;
+    }
+    .total-price {
+      font-size: 110%;
+    }
+  }
+}
