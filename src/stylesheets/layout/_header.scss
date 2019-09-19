@@ -31,23 +31,18 @@
       margin-top: 5px;
       background-color: map-get($color, "color-grey-shd");
       & > .small-icon {
-        color: map-get($color, "btn-primary");
+        color: map-get($color, "btn-border-color");
         padding-right: 10px;
         font-size: map-get($font-size, "font-size-26"); //!important;
         @include viewport(small-mobile) {
-          color: #e74646;
+          color:  map-get($color, "btn-border-color");
           padding-right: 10px;
-          font-size: 26px;
+          font-size: map-get($font-size, "font-size-26");
         }
       }
       @include viewport(small-mobile) {
-        padding: 7px 25px 13px 15px;
-        margin-top: 8px;
-      }
-      & > span {
-        @include viewport(small-mobile) {
-          font-size: 114%;
-        }
+        padding: 10px 25px 18px 18px;
+        margin-top: 0px;
       }
     }
     .links {

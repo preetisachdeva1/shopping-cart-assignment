@@ -6,6 +6,8 @@ import {
   filterProductsByCategory
 } from "../../../actions/productAction";
 import { fetchCategory } from "../../../actions/categoryAction";
+import  {addProduct} from '../../../actions/buyItemAction';
+
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -27,7 +29,8 @@ class ProductDetail extends Component {
       categories,
       products,
       filterProductsByCategory,
-      categoryId
+      categoryId, 
+      addProduct
     } = this.props;
     const { error, isLoaded } = this.state;
     let productList, categoryList;
@@ -103,7 +106,8 @@ const mapDispatchToProps = dispatch => {
     // dispatching actions returned by action creators
     fetchProducts: () => dispatch(fetchProducts()),
     fetchCategory: () => dispatch(fetchCategory()),
-    filterProductsByCategory: id => dispatch(filterProductsByCategory(id))
+    filterProductsByCategory: id => dispatch(filterProductsByCategory(id)),
+    addProduct: () => dispatch(addProduct()),
   };
 };
 export default connect(

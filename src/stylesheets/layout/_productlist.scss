@@ -22,7 +22,7 @@
     @include flex-direction(column);
     @include justify-content(space-between);
     @include align-items(center);
-    font-size: 94%;
+    font-size: map-get($font-size, "font-size-16");
     .btn {
       color: map-get($color, "color-white");
       background-color: map-get($color, "btn-border-color");
@@ -34,7 +34,6 @@
     }
     & * {
       @include viewport(small-mobile) {
-        font-size: 84%;
         margin-bottom: 6px;
       }
     }

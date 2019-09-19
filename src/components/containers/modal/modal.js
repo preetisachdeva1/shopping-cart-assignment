@@ -3,14 +3,25 @@ import { LOWSET_PRICE_URL } from "../../../common/constants/common";
 import CartItem from "../../views/Cart/CartItem";
 
 class Modal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { show: false };
+    this.modalToggle = this.modalToggle.bind(this);
+  }
+  modalToggle() {
+    this.setState(prevState => ({
+      show: !prevState.show
+    }));
+  }
   render() {
-    const itemsCount = [1, 2, 3, 4];
+    const itemsCount = [1,2];
     return (
       <>
-        <div className="modal">
+        <div className={`modal ${this.state.show ? 'show' : 'hide'}`}>
           <div className="modal-content">
             <div className="modal-heading">
-              <span>My cart (1 item)</span>
+              <div>My cart{this.state.show} <span>(1 item)</span></div>
+              <i className="ion-android-close icon-close"onClick={this.modalToggle}></i>
             </div>
             <div className="modal-wrapper">
               {itemsCount.length > 0 ? (

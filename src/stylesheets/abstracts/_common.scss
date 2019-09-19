@@ -14,7 +14,7 @@
 .buynow-price {
   background-color: map-get($color, "btn-border-color");
   color: map-get($color, "color-white");
-  font-size: 90%;
+  font-size: map-get($font-size, "font-size-14");
   @include border-radius(2%);
 }
 .text-center {
