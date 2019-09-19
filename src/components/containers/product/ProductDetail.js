@@ -55,7 +55,7 @@ class ProductDetail extends Component {
             </div>
             <div className="product-price">
               <div className="mrp">MRP Rs.{products.price}</div>
-              <div className="btn">Buy Now</div>
+              <div className="btn" onClick={() => addProduct(products)}>Buy Now</div>
             </div>
             <div className="buynow-price btn">
               Buy Now @ Rs.{products.price}
@@ -107,7 +107,7 @@ const mapDispatchToProps = dispatch => {
     fetchProducts: () => dispatch(fetchProducts()),
     fetchCategory: () => dispatch(fetchCategory()),
     filterProductsByCategory: id => dispatch(filterProductsByCategory(id)),
-    addProduct: () => dispatch(addProduct()),
+    addProduct: product => dispatch(addProduct(product)),
   };
 };
 export default connect(

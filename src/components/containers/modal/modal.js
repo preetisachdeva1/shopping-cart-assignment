@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { LOWSET_PRICE_URL } from "../../../common/constants/common";
 import CartItem from "../../views/Cart/CartItem";
+import { connect } from "react-redux";
 
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    this.state = { 
+      show: false, 
+      products: []
+    };
     this.modalToggle = this.modalToggle.bind(this);
   }
   modalToggle() {
@@ -14,18 +18,19 @@ class Modal extends Component {
     }));
   }
   render() {
-    const itemsCount = [1,2];
+    const { products } = this.props;
+    console.log("prodo", products);
     return (
       <>
         <div className={`modal ${this.state.show ? 'show' : 'hide'}`}>
           <div className="modal-content">
             <div className="modal-heading">
-              <div>My cart{this.state.show} <span>(1 item)</span></div>
+              <div>My cart{this.state.show} <span>({products.length} item)</span></div>
               <i className="ion-android-close icon-close"onClick={this.modalToggle}></i>
             </div>
             <div className="modal-wrapper">
-              {itemsCount.length > 0 ? (
-                <CartItem data={itemsCount} />
+              {products.length > 0 ? (
+                <CartItem data={products} />
               ) : (
                 <div className="cart-no-item">
                   <div className="cart-no-item-heading">
@@ -37,7 +42,7 @@ class Modal extends Component {
                 </div>
               )}
             </div>
-            {itemsCount.length > 0 ? (
+            {products.length > 0 ? (
               <div className="cart-footer">
                 <div className="cart-footer-promo">
                   Promo can be applied on payment page
@@ -58,4 +63,8 @@ class Modal extends Component {
     );
   }
 }
-export default Modal;
+const mapStateToProps = state => ({
+    products: state.cartItem.product
+});
+
+export default connect(mapStateToProps)(Modal);
