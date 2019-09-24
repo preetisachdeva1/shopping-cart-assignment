@@ -8,7 +8,7 @@
   height: 524px;
   max-height: 100%;
   background-color: map-get($color, "color-grey-shd");
-  font-size: map-get($font-size, "font-size-16");
+  font-size: calculate-rem(16px);
   .modal-content {
     position: absolute;
     top: 0;
@@ -19,7 +19,6 @@
     @include flex-direction(column);
     background-color: map-get($color, "color-grey-shd");
     .modal-heading {
-      height: 11%;
       width: 100%;
       background-color: map-get($color, "color-black");
       color: map-get($color, "color-white");
@@ -30,13 +29,14 @@
       i { cursor: pointer;}
       div {
         font-weight: 600;
-        span { font-size: 14px; font-weight: 300 }
+        padding: 16px;
+        span { font-size: calculate-rem(14px);font-weight: 300 }
       }
     }
     .modal-wrapper {
       margin: 15px 0;
       overflow: auto;
-      height: 350px;
+      // height: 350px;
       .lowest-price {
         @include flexbox();
         @include justify-content(space-around);
@@ -62,9 +62,10 @@
     }
     .cart-footer {
       @extend .text-center-nomargin;
-      margin-bottom: 10px;
+      //@include border-top(1px, #dbdad);
+      border-top: 1px solid #dbdada;
       background-color: map-get($color, "color-white");
-      position: absolute;
+      //position: absolute;
       bottom: 0;
       width: 100%;
       &-promo {

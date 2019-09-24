@@ -27,7 +27,7 @@
     @include align-items(center);
     i {
       color: map-get($color, "btn-border-color");
-      font-size: 2.5rem;
+      font-size: calculate-rem(25px);
       cursor: pointer;
     }
     .icon-close {

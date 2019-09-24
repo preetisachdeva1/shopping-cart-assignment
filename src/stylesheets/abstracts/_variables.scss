@@ -1,17 +1,4 @@
 /**
-  * font size define
-  */
-
-$font-size: (
-  "font-size-26": 2.6rem,
-  "font-size-16": 1.6rem,
-  "font-size-15": 1.5rem,
-  "font-size-14": 1.4rem,
-  "font-size-12": 1.2rem,
-  "font-82": 82%
-);
-
-/**
  * Color define
  */
 $color: (
@@ -23,10 +10,21 @@ $color: (
   "color-white": #ffffff,
   "color-grey-border": #d2d7da,
   "color-black": #000000,
-  "color-para": #f2f0f0
+  "color-para": #f2f0f0,
+  "color-blue": #3bbfce
 );
 
 /**
  * Font weight 
  */
 $font-weight-600: 600;
+
+/**
+ * breakpoints
+ */
+$breakpoints: (
+  "small-tablet": 768px,
+  "small-mobile": 480px,
+  "big-tablet": 1024px,
+  "desktop": 1200px
+);

@@ -3,7 +3,7 @@
   @include flex-direction(row);
   .category-block {
     width: 25%;
-    font-size: map-get($font-size, "font-size-16");
+    font-size: calculate-rem(16px);
     background-color: map-get($color, "color-grey-shd");
     @include viewport(small-mobile) {
       display: none;
@@ -40,14 +40,14 @@
         }
       }
     h2 {
-        font-size: map-get($font-size, "font-size-16");
+      font-size: calculate-rem(16px);
         color: map-get($color, "color-black");
         padding: 15px;
         @include font-weight("bold");
       }
       .prod-descrip {
         padding: 5px;
-        font-size: map-get($font-size, "font-size-14");
+        font-size: calculate-rem(14px);
         @include border-radius(2%);
         background-color: map-get($color, "color-para");
         word-spacing: 1px;
@@ -56,22 +56,23 @@
         @include flexbox();
         @include justify-content(space-between);
         @include align-items(center);
-        font-size: map-get($font-size, "font-size-14");
+        font-size: calculate-rem(14px);
         .mrp {
           color: map-get($color, "color-black");
           @include align-items(center);
         }
         .btn {
-          @extend .buynow-price;
+          @extend .btn-primary;
+          cursor: pointer;
         }
         @include viewport(small-tablet) {
           display: none;
         }
       }
 
-      .buynow-price {
+      .btn-primary {
         margin: 4%;
-        @extend .buynow-price;
+        @extend .btn-primary;
         @extend .no-display;
         @include viewport(small-tablet) {
           display: block;
@@ -105,7 +106,7 @@
               @include flex-direction(column);
               @include justify-content(space-between);
             }
-            img, .buynow-price {
+            img, .btn-primary {
               @include viewport(small-mobile) {
                 margin: 0;
               }
@@ -117,7 +118,7 @@
         margin: 4%;
         @include viewport(small-mobile) { margin: 0;}
       }
-      & > .buynow-price {
+      & > .btn-primary {
         @include viewport(small-mobile) {
           display: none;
         }

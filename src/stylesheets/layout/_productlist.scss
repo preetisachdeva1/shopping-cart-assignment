@@ -22,7 +22,7 @@
     @include flex-direction(column);
     @include justify-content(space-between);
     @include align-items(center);
-    font-size: map-get($font-size, "font-size-16");
+    font-size: calculate-rem(16px);
     .btn {
       color: map-get($color, "color-white");
       background-color: map-get($color, "btn-border-color");

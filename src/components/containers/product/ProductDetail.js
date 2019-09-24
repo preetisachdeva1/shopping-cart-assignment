@@ -6,8 +6,9 @@ import {
   filterProductsByCategory
 } from "../../../actions/productAction";
 import { fetchCategory } from "../../../actions/categoryAction";
-import  {addProduct} from '../../../actions/buyItemAction';
-
+import  {addProductAction} from '../../../actions/buyItemAction';
+import i18next from "i18next";
+import Footer from "../../shared/Footer";
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class ProductDetail extends Component {
       products,
       filterProductsByCategory,
       categoryId, 
-      addProduct
+      addProductAction
     } = this.props;
     const { error, isLoaded } = this.state;
     let productList, categoryList;
@@ -48,17 +49,17 @@ class ProductDetail extends Component {
               <img src={products.imageURL} />
               <div className="item-detail-wrapper">
                 <div className="prod-descrip">{products.description}</div>
-                <div className="buynow-price btn">
-                  Buy Now @ Rs.{products.price}
+                <div className="btn-primary btn" onClick={() => addProductAction(products.id)}>
+                {i18next.t("BuyNowPrice")}.{products.price}
                 </div>
               </div>
             </div>
             <div className="product-price">
-              <div className="mrp">MRP Rs.{products.price}</div>
-              <div className="btn" onClick={() => addProduct(products)}>Buy Now</div>
+              <div className="mrp">{i18next.t("BuyRs")}.{products.price}</div>
+              <div className="btn" onClick={() => addProductAction(products.id)}>{i18next.t("BuyNow")}</div>
             </div>
-            <div className="buynow-price btn">
-              Buy Now @ Rs.{products.price}
+            <div className="btn-primary btn" onClick={() => addProductAction(products.id)}>
+            {i18next.t("BuyNowPrice")}.{products.price}
             </div>
           </div>
         );
@@ -89,6 +90,7 @@ class ProductDetail extends Component {
             </div>
           </div>
         </section>
+        <Footer />
       </>
     );
   }
@@ -103,11 +105,10 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => {
   return {
-    // dispatching actions returned by action creators
     fetchProducts: () => dispatch(fetchProducts()),
     fetchCategory: () => dispatch(fetchCategory()),
     filterProductsByCategory: id => dispatch(filterProductsByCategory(id)),
-    addProduct: product => dispatch(addProduct(product)),
+    addProductAction: id => dispatch(addProductAction(id)),
   };
 };
 export default connect(

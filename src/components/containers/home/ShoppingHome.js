@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Header from "../../shared/Header";
+import Footer from "../../shared/Footer";
 import ProductList from "../../shared/ProductList";
 import { connect } from "react-redux";
 import { fetchCategory } from "../../../actions/categoryAction";
+import i18next from "i18next";
 
 class Home extends Component {
   constructor(props) {
@@ -15,9 +17,9 @@ class Home extends Component {
     const { error, loading, category } = this.props;
     let data;
     if (error) {
-      data = <div className="text-center">Error: {error.message}</div>;
+      data = <div className="text-center">{i18next.t("Error")}: {error.message}</div>;
     } else if (loading) {
-      data = <div className="text-center">Loading...</div>;
+      data = <div className="text-center">{i18next.t("Loading")}...</div>;
     } else {
       data = category
         .filter(item => item.enabled)
@@ -27,6 +29,7 @@ class Home extends Component {
       <>
         <Header />
         <div className="row">{data}</div>
+        <Footer />
       </>
     );
   }

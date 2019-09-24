@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { LOWSET_PRICE_URL } from "../../../common/constants/common";
 import CartItem from "../../views/Cart/CartItem";
 import { connect } from "react-redux";
+import { toggleCartItem } from "../../../actions/buyItemAction";
+import i18next from "i18next";
 
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      show: false, 
+    this.state = {
+      show: false,
       products: []
     };
     this.modalToggle = this.modalToggle.bind(this);
@@ -18,15 +19,19 @@ class Modal extends Component {
     }));
   }
   render() {
-    const { products } = this.props;
-    console.log("prodo", products);
+    const { products, totalItem, totalPrice, toggleCartItem } = this.props;
     return (
       <>
-        <div className={`modal ${this.state.show ? 'show' : 'hide'}`}>
+        <div className={`modal ${this.state.show ? "show" : "hide"}`}>
           <div className="modal-content">
             <div className="modal-heading">
-              <div>My cart{this.state.show} <span>({products.length} item)</span></div>
-              <i className="ion-android-close icon-close"onClick={this.modalToggle}></i>
+              <div>
+              {i18next.t("Mycart")} {this.state.show} <span>({totalItem} {i18next.t("Item")})</span>
+              </div>
+              <i
+                className="ion-android-close icon-close"
+                onClick={toggleCartItem}
+              ></i>
             </div>
             <div className="modal-wrapper">
               {products.length > 0 ? (
@@ -34,10 +39,10 @@ class Modal extends Component {
               ) : (
                 <div className="cart-no-item">
                   <div className="cart-no-item-heading">
-                    No items in your cart
+                  {i18next.t("NoItem")}
                   </div>
                   <div className="cart-no-item-heading-fav">
-                    your favourite items are just click away
+                  {i18next.t("FavItem")}
                   </div>
                 </div>
               )}
@@ -45,16 +50,16 @@ class Modal extends Component {
             {products.length > 0 ? (
               <div className="cart-footer">
                 <div className="cart-footer-promo">
-                  Promo can be applied on payment page
+                {i18next.t("PromoApplied")}
                 </div>
                 <div className="cart-footer-checkout">
-                  <span>Proceed to checkout</span>
-                  <span>Rs.187</span>
+                  <span>{i18next.t("ProceedCheckout")}</span>
+                  <span>{i18next.t("RS")}.{totalPrice}</span>
                 </div>
               </div>
             ) : (
               <div className="cart-footer-checkout cart-footer-start-shopping">
-                <span>Start Shopping</span>
+                <span>{i18next.t("StartShopping")}</span>
               </div>
             )}
           </div>
@@ -64,7 +69,17 @@ class Modal extends Component {
   }
 }
 const mapStateToProps = state => ({
-    products: state.cartItem.product
+  products: state.cartItem.product,
+  totalItem: state.cartItem.totalItem,
+  totalPrice: state.cartItem.totalPrice
 });
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleCartItem: () => dispatch(toggleCartItem())
+  };
+};
 
-export default connect(mapStateToProps)(Modal);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Modal);

@@ -2,7 +2,7 @@
 
 .main-header {
   padding: 7px 7px 0 7px;
-  font-size: map-get($font-size, "font-size-15");
+  font-size: calculate-rem(15px);
   @include flexbox();
   @include shadow(0px 5px 9px, map-get($color, "color-grey-shd"));
   @include viewport(small-mobile) {
@@ -29,15 +29,16 @@
     .item-bag {
       padding: 16px;
       margin-top: 5px;
+      cursor: pointer;
       background-color: map-get($color, "color-grey-shd");
       & > .small-icon {
         color: map-get($color, "btn-border-color");
         padding-right: 10px;
-        font-size: map-get($font-size, "font-size-26"); //!important;
+        font-size: calculate-rem(26px); //!important;
         @include viewport(small-mobile) {
           color:  map-get($color, "btn-border-color");
           padding-right: 10px;
-          font-size: map-get($font-size, "font-size-26");
+          font-size: calculate-rem(26px);
         }
       }
       @include viewport(small-mobile) {

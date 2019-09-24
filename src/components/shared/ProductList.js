@@ -1,5 +1,5 @@
 import React from "react";
-import { PRODUCT_URL } from '../../common/constants/common';
+import i18next from "i18next";
 
 const ProductList = props => {
   const { data } = props;
@@ -14,7 +14,7 @@ const ProductList = props => {
           {data.description}
         </p>
         <a className="btn" href="#">
-          Explore {data.name}
+        {i18next.t("Explore")} {data.name}
         </a>
       </div>
     </div>

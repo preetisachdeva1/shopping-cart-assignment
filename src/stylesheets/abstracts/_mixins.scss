@@ -65,12 +65,7 @@
   -ms-flex-align: $align;
   align-items: $align;
 }
-$breakpoints: (
-  "small-tablet": 768px,
-  "small-mobile": 480px,
-  "big-tablet": 1024px,
-  "desktop": 1200px
-);
+
 
 @mixin viewport($point) {
   @if map_has_key($breakpoints, $point) {
@@ -138,6 +133,11 @@ $breakpoints: (
     map-get($weights, $style),
     map-get($weights, normal)
   );
+}
+
+@function calculate-rem($size) {
+  $rem-size: $size / 10px;
+  @return #{$rem-size}rem;
 }
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
