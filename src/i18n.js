@@ -36,7 +36,6 @@ i18n.use(LanguageDetector).init({
         PasswordPattern: "*Password must contain at least one numeric digit, one letter, min 6 characters with no space.",
         Email: "Email",
         Password: "Password",
-        Login: "Login",
         fnameReq : "*Please enter your first name.",
         lnameReq :"*Please enter your last name.",
         confirmPassword: "*Please enter your confirm password.",

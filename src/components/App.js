@@ -1,5 +1,5 @@
 /* src/components/App.js */
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "../stylesheets/main.scss";
 import Routes from "../routes";

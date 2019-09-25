@@ -7,9 +7,6 @@ import { fetchCategory } from "../../../actions/categoryAction";
 import i18next from "i18next";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     this.props.dispatch(fetchCategory());
   }

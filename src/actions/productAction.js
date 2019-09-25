@@ -1,7 +1,7 @@
 import { fetchProductsBegin, fetchProductsFailure } from "./categoryAction";
+import store from "../store";
 export const FETCH_PRODUCT_SUCCESS = "FETCH_PRODUCTS_SUCCESS";
 export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
-import store from "../store";
 
 export function fetchProducts() {
   return dispatch => {
@@ -28,7 +28,7 @@ export const fetchProductsSuccess = products => ({
   payload: { products }
 });
 export function filterProductsByCategory(categoryID) {
-  if (store.getState().products.categoryId == categoryID) {
+  if (store.getState().products.categoryId === categoryID) {
     categoryID = "";
   }
   return dispatch => {

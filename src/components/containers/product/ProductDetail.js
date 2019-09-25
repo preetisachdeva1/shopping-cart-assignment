@@ -33,10 +33,10 @@ class ProductDetail extends Component {
       categoryId,
       addProductAction
     } = this.props;
-    const { error, isLoaded } = this.state;
+    //const { error, isLoaded } = this.state;
     let productList, categoryList;
     productList = products
-      .filter(item => item.category == categoryId || categoryId === "")
+      .filter(item => item.category === categoryId || categoryId === "")
       .map((products, index) => {
         return (
           <div key={products.id} className="product-item">
@@ -84,7 +84,7 @@ class ProductDetail extends Component {
           <div
             key={category.id}
             className={`category-name ${
-              category.id == categoryId ? "selected-link" : ""
+              category.id === categoryId ? "selected-link" : ""
             }`}
             onClick={() => filterProductsByCategory(category.id)}
           >

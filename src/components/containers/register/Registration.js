@@ -5,9 +5,6 @@ import i18next from "i18next";
 import Footer from "../../shared/Footer";
 
 class Registration extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <>

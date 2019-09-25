@@ -53,11 +53,6 @@
       "git add"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -80,6 +75,7 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "husky": "^3.0.5",
     "lint-staged": "^9.3.0",
     "react-axe": "^3.3.0",

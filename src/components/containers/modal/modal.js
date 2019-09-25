@@ -3,7 +3,6 @@ import CartItem from "../../views/Cart/CartItem";
 import { connect } from "react-redux";
 import { toggleCartItem, checkoutItems } from "../../../actions/buyItemAction";
 import i18next from "i18next";
-import { Link } from "react-router-dom";
 
 class Modal extends Component {
   constructor(props) {
