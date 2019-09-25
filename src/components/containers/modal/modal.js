@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import CartItem from "../../views/Cart/CartItem";
 import { connect } from "react-redux";
-import { toggleCartItem } from "../../../actions/buyItemAction";
+import { toggleCartItem, checkoutItems } from "../../../actions/buyItemAction";
 import i18next from "i18next";
+import { Link } from "react-router-dom";
 
 class Modal extends Component {
   constructor(props) {
@@ -19,14 +20,23 @@ class Modal extends Component {
     }));
   }
   render() {
-    const { products, totalItem, totalPrice, toggleCartItem } = this.props;
+    const {
+      products,
+      totalItem,
+      totalPrice,
+      toggleCartItem,
+      checkoutItems
+    } = this.props;
     return (
       <>
         <div className={`modal ${this.state.show ? "show" : "hide"}`}>
           <div className="modal-content">
             <div className="modal-heading">
               <div>
-              {i18next.t("Mycart")} {this.state.show} <span>({totalItem} {i18next.t("Item")})</span>
+                {i18next.t("Mycart")} {this.state.show}{" "}
+                <span>
+                  ({totalItem} {i18next.t("Item")})
+                </span>
               </div>
               <i
                 className="ion-android-close icon-close"
@@ -39,10 +49,10 @@ class Modal extends Component {
               ) : (
                 <div className="cart-no-item">
                   <div className="cart-no-item-heading">
-                  {i18next.t("NoItem")}
+                    {i18next.t("NoItem")}
                   </div>
                   <div className="cart-no-item-heading-fav">
-                  {i18next.t("FavItem")}
+                    {i18next.t("FavItem")}
                   </div>
                 </div>
               )}
@@ -50,15 +60,21 @@ class Modal extends Component {
             {products.length > 0 ? (
               <div className="cart-footer">
                 <div className="cart-footer-promo">
-                {i18next.t("PromoApplied")}
+                  {i18next.t("PromoApplied")}
                 </div>
-                <div className="cart-footer-checkout">
+                <div className="cart-footer-checkout" onClick={checkoutItems}>
                   <span>{i18next.t("ProceedCheckout")}</span>
-                  <span>{i18next.t("RS")}.{totalPrice}</span>
+
+                  <span>
+                    {i18next.t("RS")}.{totalPrice}
+                  </span>
                 </div>
               </div>
             ) : (
-              <div className="cart-footer-checkout cart-footer-start-shopping">
+              <div
+                className="cart-footer-checkout cart-footer-start-shopping"
+                onClick={toggleCartItem}
+              >
                 <span>{i18next.t("StartShopping")}</span>
               </div>
             )}
@@ -75,7 +91,8 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => {
   return {
-    toggleCartItem: () => dispatch(toggleCartItem())
+    toggleCartItem: () => dispatch(toggleCartItem()),
+    checkoutItems: () => dispatch(checkoutItems())
   };
 };
 

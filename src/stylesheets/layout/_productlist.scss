@@ -1,7 +1,7 @@
 .products-container {
-  @include flexbox();
   padding: 40px 20px;
   @include align-items(center);
+  @include flexbox();
   .prod-image {
     @include flex-grow(1);
     img {
@@ -16,13 +16,13 @@
     }
   }
   .prod-description {
+    font-size: calculate-rem(16px);
     @include flex-grow(2);
     @extend .txt-align;
     @include flexbox();
     @include flex-direction(column);
     @include justify-content(space-between);
     @include align-items(center);
-    font-size: calculate-rem(16px);
     .btn {
       color: map-get($color, "color-white");
       background-color: map-get($color, "btn-border-color");

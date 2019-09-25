@@ -1,24 +1,24 @@
 .modal-items {
-  @include flexbox();
   background-color: map-get($color, "color-white");
   height: 80px;
   justify-content: space-between;
   margin-bottom: 2px;
   padding: 10px 15px;
   @include align-items(center);
+  @include flexbox();
   img {
     height: 100%;
     width: 15%;
   }
   .modal-items-quantity {
-    @include flexbox();
     margin-left: 25px;
-    @include justify-content(center);
     flex-grow: 1;
     flex-direction: column;
+    @include flexbox();
+    @include justify-content(center);
     .product-name {
-      @include font-weight("bold");
       margin-bottom: 10px;
+      @include font-weight("bold");
     }
   }
   .product-info {

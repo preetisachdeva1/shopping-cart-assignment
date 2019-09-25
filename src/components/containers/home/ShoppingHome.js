@@ -17,7 +17,11 @@ class Home extends Component {
     const { error, loading, category } = this.props;
     let data;
     if (error) {
-      data = <div className="text-center">{i18next.t("Error")}: {error.message}</div>;
+      data = (
+        <div className="text-center">
+          {i18next.t("Error")}: {error.message}
+        </div>
+      );
     } else if (loading) {
       data = <div className="text-center">{i18next.t("Loading")}...</div>;
     } else {
@@ -27,9 +31,9 @@ class Home extends Component {
     }
     return (
       <>
-        <Header />
-        <div className="row">{data}</div>
-        <Footer />
+          <Header />
+          <div className="row">{data}</div>
+          <Footer />
       </>
     );
   }
@@ -42,4 +46,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Home);
-

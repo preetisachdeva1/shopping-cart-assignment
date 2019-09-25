@@ -3,11 +3,6 @@
 .main-header {
   padding: 7px 7px 0 7px;
   font-size: calculate-rem(15px);
-  @include flexbox();
-  @include shadow(0px 5px 9px, map-get($color, "color-grey-shd"));
-  @include viewport(small-mobile) {
-    justify-content: space-between;
-  }
   .logo {
     img {
       @include viewport(small-mobile) {
@@ -18,9 +13,9 @@
     }
   }
   .header-nav {
-    @include flex-grow(1);
     padding-top: 49px;
     padding-left: 6%;
+    @include flex-grow(1);
     @include viewport(small-mobile) {
       display: none;
     }
@@ -51,5 +46,10 @@
         display: none;
       }
     }
+  }
+  @include flexbox();
+  @include shadow(0px 5px 9px, map-get($color, "color-grey-shd"));
+  @include viewport(small-mobile) {
+    justify-content: space-between;
   }
 }

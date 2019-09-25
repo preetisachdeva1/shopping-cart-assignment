@@ -6,7 +6,7 @@ import {
   filterProductsByCategory
 } from "../../../actions/productAction";
 import { fetchCategory } from "../../../actions/categoryAction";
-import  {addProductAction} from '../../../actions/buyItemAction';
+import { addProductAction } from "../../../actions/buyItemAction";
 import i18next from "i18next";
 import Footer from "../../shared/Footer";
 
@@ -30,7 +30,7 @@ class ProductDetail extends Component {
       categories,
       products,
       filterProductsByCategory,
-      categoryId, 
+      categoryId,
       addProductAction
     } = this.props;
     const { error, isLoaded } = this.state;
@@ -42,24 +42,37 @@ class ProductDetail extends Component {
           <div key={products.id} className="product-item">
             <h2>{products.name}</h2>
             <div className="item-wrapper">
-              <img src={products.imageURL} />
+              <img src={products.imageURL} alt={products.name} />
               <div className="prod-descrip">{products.description}</div>
             </div>
             <div className="item-wrapper-mobile">
-              <img src={products.imageURL} />
+              <img src={products.imageURL} alt={products.name} />
               <div className="item-detail-wrapper">
                 <div className="prod-descrip">{products.description}</div>
-                <div className="btn-primary btn" onClick={() => addProductAction(products.id)}>
-                {i18next.t("BuyNowPrice")}.{products.price}
+                <div
+                  className="btn-primary btn"
+                  onClick={() => addProductAction(products.id)}
+                >
+                  {i18next.t("BuyNowPrice")}.{products.price}
                 </div>
               </div>
             </div>
             <div className="product-price">
-              <div className="mrp">{i18next.t("BuyRs")}.{products.price}</div>
-              <div className="btn" onClick={() => addProductAction(products.id)}>{i18next.t("BuyNow")}</div>
+              <div className="mrp">
+                {i18next.t("BuyRs")}.{products.price}
+              </div>
+              <div
+                className="btn"
+                onClick={() => addProductAction(products.id)}
+              >
+                {i18next.t("BuyNow")}
+              </div>
             </div>
-            <div className="btn-primary btn" onClick={() => addProductAction(products.id)}>
-            {i18next.t("BuyNowPrice")}.{products.price}
+            <div
+              className="btn-primary btn"
+              onClick={() => addProductAction(products.id)}
+            >
+              {i18next.t("BuyNowPrice")}.{products.price}
             </div>
           </div>
         );
@@ -81,16 +94,16 @@ class ProductDetail extends Component {
       });
     return (
       <>
-        <Header />
-        <section>
-          <div className="row">
-            <div className="product-container">
-              <div className="category-block">{categoryList}</div>
-              <div className="category-list">{productList}</div>
+          <Header />
+          <section>
+            <div className="row">
+              <div className="product-container">
+                <div className="category-block">{categoryList}</div>
+                <div className="category-list">{productList}</div>
+              </div>
             </div>
-          </div>
-        </section>
-        <Footer />
+          </section>
+          <Footer />
       </>
     );
   }
@@ -108,7 +121,7 @@ const mapDispatchToProps = dispatch => {
     fetchProducts: () => dispatch(fetchProducts()),
     fetchCategory: () => dispatch(fetchCategory()),
     filterProductsByCategory: id => dispatch(filterProductsByCategory(id)),
-    addProductAction: id => dispatch(addProductAction(id)),
+    addProductAction: id => dispatch(addProductAction(id))
   };
 };
 export default connect(

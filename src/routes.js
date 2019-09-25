@@ -8,7 +8,7 @@ import Modal from "./components/containers/modal/modal";
 import { connect } from "react-redux";
 
 const Routes = props => (
-  <div>
+  <main>
     <Router>
       <Route exact path="/" component={Home} />
       <Route  path="/home" component={Home} />
@@ -17,7 +17,7 @@ const Routes = props => (
       <Route path="/register" component={Registration} />
     </Router>
     {props.toogleModal && <Modal />}
-  </div>
+  </main>
 );
 
 const mapStateToProps = state => ({

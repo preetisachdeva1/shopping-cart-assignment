@@ -1,6 +1,4 @@
 .product-container {
-  @include flexbox();
-  @include flex-direction(row);
   .category-block {
     width: 25%;
     font-size: calculate-rem(16px);
@@ -11,27 +9,26 @@
     .category-name {
       padding: 14px;
       cursor: pointer;
-      color: map-get($color, "btn-color");
+      color: map-get($color, "background-primary");
       line-height: 145%;
       @include border-bottom(1px, map-get($color, "color-grey-border"));
+    }
+    .selected-link {
+      background-color: map-get($color, "btn-border-color");
+      color: map-get($color, "color-white");
     }
   }
   .category-list {
     width: 75%;
-    @include flexbox();
-    @include flex-wrap(wrap);
-    @include viewport(small-mobile) {
-      width: 100%;
-    }
     .product-item {
-      @include flexbox();
       margin-top: 2%;
-      @include flex-direction(column);
       width: 25%;
       margin-bottom: 3%;
       @include border-bottom(1px, map-get($color, "color-grey-border"));
       @include justify-content(space-between);
-    img {
+      @include flexbox();
+      @include flex-direction(column);
+      img {
         width: 100%;
         height: auto;
         @extend .no-margin;
@@ -39,8 +36,8 @@
           width: 50%;
         }
       }
-    h2 {
-      font-size: calculate-rem(16px);
+      h2 {
+        font-size: calculate-rem(16px);
         color: map-get($color, "color-black");
         padding: 15px;
         @include font-weight("bold");
@@ -48,28 +45,27 @@
       .prod-descrip {
         padding: 5px;
         font-size: calculate-rem(14px);
-        @include border-radius(2%);
         background-color: map-get($color, "color-para");
         word-spacing: 1px;
+        @include border-radius(2%);
       }
       .product-price {
-        @include flexbox();
-        @include justify-content(space-between);
-        @include align-items(center);
         font-size: calculate-rem(14px);
         .mrp {
           color: map-get($color, "color-black");
           @include align-items(center);
         }
         .btn {
-          @extend .btn-primary;
           cursor: pointer;
+          @extend .btn-primary;
         }
         @include viewport(small-tablet) {
           display: none;
         }
+        @include flexbox();
+        @include justify-content(space-between);
+        @include align-items(center);
       }
-
       .btn-primary {
         margin: 4%;
         @extend .btn-primary;
@@ -78,9 +74,7 @@
           display: block;
           margin: 0 3% 4%;
         }
-        //@include viewport(small-mobile) { display: none}
       }
-
       .item-wrapper {
         @include viewport(small-tablet) {
           display: flex;
@@ -96,27 +90,30 @@
         width: 100%;
       }
       .item-wrapper-mobile {
+        margin: 3%;
+        .item-detail-wrapper {
+          @include viewport(small-mobile) {
+            @include flexbox();
+            @include flex-direction(column);
+            @include justify-content(space-between);
+          }
+          img,
+          .btn-primary {
+            @include viewport(small-mobile) {
+              margin: 0;
+            }
+          }
+        }
         @extend .no-display;
         @include viewport(small-mobile) {
           @include flexbox();
-          margin: 3%;
-          .item-detail-wrapper {
-            @include viewport(small-mobile) {
-              @include flexbox();
-              @include flex-direction(column);
-              @include justify-content(space-between);
-            }
-            img, .btn-primary {
-              @include viewport(small-mobile) {
-                margin: 0;
-              }
-            } 
-          }
         }
       }
       & * {
         margin: 4%;
-        @include viewport(small-mobile) { margin: 0;}
+        @include viewport(small-mobile) {
+          margin: 0;
+        }
       }
       & > .btn-primary {
         @include viewport(small-mobile) {
@@ -124,5 +121,12 @@
         }
       }
     }
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include viewport(small-mobile) {
+      width: 100%;
+    }
   }
+  @include flexbox();
+  @include flex-direction(row);
 }

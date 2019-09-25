@@ -15,38 +15,39 @@
     width: 100%;
     height: 100%;
     left: 0;
-    @include flexbox();
-    @include flex-direction(column);
     background-color: map-get($color, "color-grey-shd");
     .modal-heading {
       width: 100%;
       background-color: map-get($color, "color-black");
       color: map-get($color, "color-white");
-      @include flexbox();
-      @include align-items(center);
-      @include justify-content(space-between);
       padding: 0 15px;
-      i { cursor: pointer;}
+      i {
+        cursor: pointer;
+      }
       div {
         font-weight: 600;
         padding: 16px;
-        span { font-size: calculate-rem(14px);font-weight: 300 }
+        span {
+          font-size: calculate-rem(14px);
+          font-weight: 300;
+        }
       }
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(space-between);
     }
     .modal-wrapper {
       margin: 15px 0;
       overflow: auto;
-      // height: 350px;
       .lowest-price {
-        @include flexbox();
-        @include justify-content(space-around);
         background-color: white;
         margin: 10px;
         padding: 10px;
         @include align-items(center);
+        @include flexbox();
+        @include justify-content(space-around);
       }
       .cart-no-item {
-        @include flexbox();
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -58,14 +59,12 @@
         .cart-no-item-heading-fav {
           font-weight: 300;
         }
+        @include flexbox();
       }
     }
     .cart-footer {
-      @extend .text-center-nomargin;
-      //@include border-top(1px, #dbdad);
       border-top: 1px solid #dbdada;
       background-color: map-get($color, "color-white");
-      //position: absolute;
       bottom: 0;
       width: 100%;
       &-promo {
@@ -76,10 +75,10 @@
         background-color: map-get($color, "btn-border-color");
         color: map-get($color, "color-white");
         padding: 10px;
+        cursor: pointer;
         @include border-radius(3px);
         @include flexbox();
         @include justify-content(space-between);
-        cursor: pointer;
       }
       &-start-shopping {
         position: absolute;
@@ -87,12 +86,15 @@
         width: 100%;
         @include justify-content(center);
       }
+      @extend .text-center-nomargin;
     }
+    @include flexbox();
+    @include flex-direction(column);
   }
   @include viewport(small-tablet) {
-    position: static
+    position: static;
   }
   @include viewport(small-mobile) {
-    position: static
+    position: static;
   }
 }

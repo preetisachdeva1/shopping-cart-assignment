@@ -6,17 +6,17 @@
   color: map-get($color, "btn-color");
   border: map-get($color, "btn-border-color");
   display: inline-block;
-  @extend .no-underline;
   padding: 5px;
   font-weight: $font-weight-600;
   @extend .txt-align;
+  @extend .no-underline;
 }
 .btn-primary {
   background-color: map-get($color, "btn-border-color");
   color: map-get($color, "color-white");
   font-size: calculate-rem(14px);
-  @include border-radius(2%);
   cursor: pointer;
+  @include border-radius(2%);
 }
 .text-center {
   text-align: center;
@@ -24,10 +24,6 @@
 }
 .text-center-nomargin {
   text-align: center;
-}
-.selected-link {
-  color: #575151 !important;
-  font-weight: 600;
 }
 button {
   display: inline-block;

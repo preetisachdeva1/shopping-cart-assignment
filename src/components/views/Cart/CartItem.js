@@ -9,7 +9,7 @@ class CartItem extends React.Component {
     const { cartItem, addProductAction, removeProductAction } = this.props;
     const itemData = cartItem.product.map((item, index) => (
       <div className="modal-items" key={index}>
-        <img src="/images/products/fruit-n-veg/apple.jpg"></img>
+        <img src={item.product.imageURL} alt={item.product.name}></img>
         <div className="modal-items-quantity">
           <div className="product-name">{item.product.name}</div>
           <div className="product-info">
