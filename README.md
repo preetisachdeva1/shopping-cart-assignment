@@ -31,13 +31,13 @@ node server.js
 ```
 ##Performance
 
-![Home page] (https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/Home.JPG)
+![Home page](https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/Home.JPG)
 
-![Product page] (https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/Product.JPG)
+![Product page](https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/Product.JPG)
 
-![Login page] (https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/login.JPG)
+![Login page](https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/login.JPG)
 
-![Registration page] (https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/registration.JPG)
+![Registration page](https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/registration.JPG)
 
 
 
