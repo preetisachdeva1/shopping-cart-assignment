@@ -6,10 +6,14 @@ import Registration from './components/containers/register/Registration';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Modal from "./components/containers/modal/modal";
 import { connect } from "react-redux";
-
+import { createBrowserHistory } from 'history';
+const scrollToTop = () => {
+  window.scrollTo(0, 0);
+  return '';
+};
 const Routes = props => (
   <main>
-    <Router>
+    <Router onUpdate={scrollToTop}>
       <Route exact path="/" component={Home} />
       <Route  path="/home" component={Home} />
       <Route  path="/product" component={ProductDetail} />

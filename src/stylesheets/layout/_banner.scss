@@ -1,0 +1,73 @@
+
+/*-------------- Banner section-----------------*/
+.content {
+  width: 100%;
+  position: relative;
+  &-img {
+    display: none;
+    animation: fading 3s;
+    width: 100%;
+  }
+  &-show {
+    display: block;
+  }
+}
+
+@keyframes fading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.nav {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 100%;
+  transform: translate(-50%, 100%);
+  font-size: calculate-rem(14px);
+  display: flex;
+  justify-content: space-between;
+  &--arrow {
+    cursor: pointer;
+    color: map-get($color, "color-white");
+    padding: 10px 10px;
+    background-color: map-get($color, "color-black");
+    opacity: 0.1;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.5;
+    }
+    @include viewport(small-mobile) {
+      padding: 5px 5px;
+      font-size: calculate-rem(12px);
+    }
+  }
+  &-badge {
+    bottom: 5%;
+    display: inline;
+  }
+  &--badge {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 8px;
+    width: 8px;
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    &--selected {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}

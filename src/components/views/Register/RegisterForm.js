@@ -10,13 +10,7 @@ class RegistrationForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      fields: {
-        fname: "",
-        lname: "",
-        emailid: "",
-        password: "",
-        cpassword: ""
-      },
+      fields: {},
       errors: {},
       redirect: false
     };
@@ -31,20 +25,13 @@ class RegistrationForm extends React.Component {
     this.setState({
       fields
     });
-    this.validateForm();
+    //this.validateForm();
   }
 
   submituserRegistrationForm(e) {
     e.preventDefault();
     if (this.validateForm()) {
-      let fields = {
-        fname: "",
-        lname: "",
-        emailid: "",
-        password: "",
-        cpassword: ""
-      };
-      this.setState({ fields: fields, redirect: true });
+      this.setState({ fields: {}, redirect: true });
     }
   }
 
@@ -52,7 +39,7 @@ class RegistrationForm extends React.Component {
     let fields = this.state.fields;
     let errors = {};
     let formIsValid = true;
-
+    console.log("de", fields, typeof fields["password"]);
     if (!fields["fname"]) {
       formIsValid = false;
       errors["fname"] = i18next.t("fnameReq");
@@ -76,7 +63,7 @@ class RegistrationForm extends React.Component {
       formIsValid = false;
       errors["password"] = i18next.t("PasswordReq");
     }
-    if (fields["password"] !== "") {
+    if (typeof fields["password"] !== "undefined") {
       if (!fields["password"].match(PASSWORD_REG_EXP)) {
         formIsValid = false;
         errors["password"] = i18next.t("PasswordPattern");
@@ -118,7 +105,7 @@ class RegistrationForm extends React.Component {
             <input
               type="text"
               name="fname"
-              value={this.state.fields.fname}
+              value={this.state.fields.fname || ''}
               onChange={this.handleChange}
             />
             <span className="bar"></span>
@@ -132,7 +119,7 @@ class RegistrationForm extends React.Component {
             <input
               type="text"
               name="lname"
-              value={this.state.fields.lname}
+              value={this.state.fields.lname || ''}
               onChange={this.handleChange}
             />
             <span className="bar"></span>
@@ -146,7 +133,7 @@ class RegistrationForm extends React.Component {
             <input
               type="email"
               name="emailid"
-              value={this.state.fields.emailid}
+              value={this.state.fields.emailid || ''}
               onChange={this.handleChange}
             />
             <span className="bar"></span>
@@ -160,7 +147,7 @@ class RegistrationForm extends React.Component {
             <input
               type="password"
               name="password"
-              value={this.state.fields.password}
+              value={this.state.fields.password || ''}
               onChange={this.handleChange}
             />
             <span className="bar"></span>
@@ -174,14 +161,14 @@ class RegistrationForm extends React.Component {
             <input
               type="password"
               name="cpassword"
-              value={this.state.fields.cpassword}
+              value={this.state.fields.cpassword || ''}
               onChange={this.handleChange}
             />
             <span className="bar"></span>
 
             <div className="errorMsg">{this.state.errors.cpassword}</div>
           </div>
-          <button className="login-form--submit  btn-primary" type="submit">
+          <button className="btn-primary" type="submit">
             {i18next.t("Signup")}
           </button>
         </form>

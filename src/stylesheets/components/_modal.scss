@@ -39,6 +39,7 @@
     .modal-wrapper {
       margin: 15px 0;
       overflow: auto;
+      @include flex-grow(1);
       .lowest-price {
         background-color: white;
         margin: 10px;
@@ -90,6 +91,9 @@
     }
     @include flexbox();
     @include flex-direction(column);
+    @include viewport(small-mobile) {
+      z-index: 1001;
+    }
   }
   @include viewport(small-tablet) {
     position: static;

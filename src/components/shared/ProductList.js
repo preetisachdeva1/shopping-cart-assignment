@@ -1,9 +1,15 @@
 import React from "react";
 import i18next from "i18next";
 import { Link } from 'react-router-dom';
+import {
+  fetchProducts,
+  filterProductsByCategory
+} from "../../actions/productAction";
+import { connect } from "react-redux";
 
 const ProductList = props => {
-  const { data } = props;
+  const { data, filterProductsByCategory } = props;
+  console.log("filterProductsByCategory", filterProductsByCategory, props.filterProductsByCategory);
   return (
     <div className="products-container">
       <div className="prod-image">
@@ -14,10 +20,16 @@ const ProductList = props => {
         <p>
           {data.description}
         </p>
-        <Link to="/product" className="btn">{i18next.t("Explore")} {data.name}</Link>
+        <Link to="/product" className="btn" onClick={(e) => filterProductsByCategory(data.id)}>{i18next.t("Explore")} {data.name}</Link>
       </div>
     </div>
   );
 };
 
-export default ProductList;
+const mapDispatchToProps = dispatch => {
+  return {
+    filterProductsByCategory: id => dispatch(filterProductsByCategory(id))
+  };
+};
+export default connect('', mapDispatchToProps)(ProductList);
+

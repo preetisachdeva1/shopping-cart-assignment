@@ -1,0 +1,60 @@
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  top: 16px;
+  right: 0;
+  margin-right: 12px;
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: map-get($color, "btn-color");
+  }
+}
+/* Color/shape of close button cross */
+.bm-cross {
+  background: map-get($color, "color-grey-border");
+}
+/* General sidebar styles */
+.bm-menu {
+  background: map-get($color, btn-color);
+  padding: 2.5em 1.5em 0;
+  font-size: calculate-rem(16px);
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  .bm-item-list {
+    color: map-get($color, "color-grey-border");
+    .bm-item {
+      display: inline-block;
+      outline: none;
+      text-decoration: none;
+      margin-bottom: 20px;
+      color: map-get($color, "color-white");
+      transition: color 0.2s;
+      &:hover {
+        color: map-get($color, "color-white");
+      }
+    }
+  }
+}
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: map-get($color, "btn-color");
+}
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+.bm-menu-wrap {
+  width: 100% !important;
+}
+.item-bag {
+  & > .small-icon {
+    color: map-get($color, "color-white");
+    padding-right: 10px;
+    font-size: calculate-rem(26px);
+  }
+}

@@ -33,3 +33,6 @@ button {
   margin: 20px 0;
   width: 100%;
 }
+.active-link {
+  color: map-get($color ,"btn-border-color");
+}

@@ -10,7 +10,7 @@ class LoginForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      fields: { username: "", password: "" },
+      fields: {},
       errors: {},
       redirect: false
     };
@@ -25,7 +25,6 @@ class LoginForm extends React.Component {
     this.setState({
       fields
     });
-    this.validateForm();
   }
 
   submituserRegistrationForm(e) {
@@ -42,12 +41,11 @@ class LoginForm extends React.Component {
     let fields = this.state.fields;
     let errors = {};
     let formIsValid = true;
-
     if (!fields["username"]) {
       formIsValid = false;
       errors["username"] = i18next.t("EmailReq");
     }
-    if (fields["username"] !== "") {
+    if (typeof fields["username"] !== "undefined") {
       var pattern = new RegExp(EMAIL_REG_EXP);
       if (!pattern.test(fields["username"])) {
         formIsValid = false;
@@ -58,7 +56,7 @@ class LoginForm extends React.Component {
       formIsValid = false;
       errors["password"] = i18next.t("PasswordReq");
     }
-    if (fields["password"] !== "") {
+    if (typeof fields["password"] !== "undefined") {
       if (!fields["password"].match(PASSWORD_REG_EXP)) {
         formIsValid = false;
         errors["password"] = i18next.t("PasswordPattern");
@@ -88,7 +86,7 @@ class LoginForm extends React.Component {
             <input
               type="email"
               name="username"
-              value={this.state.fields.username}
+              value={this.state.fields.username || ""}
               onChange={this.handleChange}
             />
             <span className="bar"></span>
@@ -102,14 +100,14 @@ class LoginForm extends React.Component {
             <input
               type="password"
               name="password"
-              value={this.state.fields.password}
+              value={this.state.fields.password || ""}
               onChange={this.handleChange}
             />
             <span className="bar"></span>
 
             <div className="errorMsg">{this.state.errors.password}</div>
           </div>
-          <button className="login-form--submit  btn-primary" type="submit">
+          <button className="btn-primary" type="submit">
             {i18next.t("Login")}
           </button>
         </form>

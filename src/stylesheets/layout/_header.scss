@@ -3,6 +3,7 @@
 .main-header {
   padding: 7px 7px 0 7px;
   font-size: calculate-rem(15px);
+  position: relative;
   .logo {
     img {
       @include viewport(small-mobile) {
@@ -10,6 +11,12 @@
         max-width: 110px;
         height: auto;
       }
+    }
+  }
+  #menu-hamburger{
+    display: none;
+    @include viewport(small-mobile) {
+      display: block
     }
   }
   .header-nav {
@@ -39,6 +46,7 @@
       @include viewport(small-mobile) {
         padding: 10px 25px 18px 18px;
         margin-top: 0px;
+        display: none
       }
     }
     .links {
@@ -49,7 +57,4 @@
   }
   @include flexbox();
   @include shadow(0px 5px 9px, map-get($color, "color-grey-shd"));
-  @include viewport(small-mobile) {
-    justify-content: space-between;
-  }
 }

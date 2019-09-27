@@ -4,14 +4,16 @@
 @import 'abstracts/validation';
 @import 'abstracts/common';
 @import 'abstracts/input';
+@import 'abstracts/select';
 
 
 @import 'base/reset';
-@import 'base/typography';
+@import 'base/burgerMenu';
 
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/productlist';
 @import 'layout/modalItem';
+@import 'layout/banner';
 
 @import 'components/index';

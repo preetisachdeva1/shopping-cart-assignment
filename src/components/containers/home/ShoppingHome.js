@@ -5,6 +5,7 @@ import ProductList from "../../shared/ProductList";
 import { connect } from "react-redux";
 import { fetchCategory } from "../../../actions/categoryAction";
 import i18next from "i18next";
+import Banner from "../../shared/Banner";
 
 class Home extends Component {
   componentDidMount() {
@@ -29,6 +30,7 @@ class Home extends Component {
     return (
       <>
           <Header />
+          <Banner />
           <div className="row">{data}</div>
           <Footer />
       </>

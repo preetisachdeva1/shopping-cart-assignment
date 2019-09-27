@@ -61,12 +61,12 @@ class ProductDetail extends Component {
               <div className="mrp">
                 {i18next.t("BuyRs")}.{products.price}
               </div>
-              <div
+              <a href="#"
                 className="btn"
                 onClick={() => addProductAction(products.id)}
               >
                 {i18next.t("BuyNow")}
-              </div>
+              </a>
             </div>
             <div
               className="btn-primary btn"
@@ -81,7 +81,7 @@ class ProductDetail extends Component {
       .filter(item => item.enabled)
       .map((category, index) => {
         return (
-          <div
+          <a href="#"
             key={category.id}
             className={`category-name ${
               category.id === categoryId ? "selected-link" : ""
@@ -89,21 +89,31 @@ class ProductDetail extends Component {
             onClick={() => filterProductsByCategory(category.id)}
           >
             {category.name}
-          </div>
+          </a>
         );
       });
     return (
       <>
-          <Header />
-          <section>
-            <div className="row">
-              <div className="product-container">
-                <div className="category-block">{categoryList}</div>
-                <div className="category-list">{productList}</div>
-              </div>
+        <Header />
+        <section>
+          <div className="row">
+            <div className="select">
+            <select onChange={(e) => filterProductsByCategory(e.target.value)}>
+              <option value="">Select category</option>
+
+              {this.props.categories
+            .filter(category => category.enabled)
+            .map(category => (
+                <option value={category.id} key={category.id}>{category.name}</option> ))}
+              </select>
             </div>
-          </section>
-          <Footer />
+            <div className="product-container">
+              <div className="category-block">{categoryList}</div>
+              <div className="category-list">{productList}</div>
+            </div>
+          </div>
+        </section>
+        <Footer />
       </>
     );
   }

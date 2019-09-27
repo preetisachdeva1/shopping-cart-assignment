@@ -3,12 +3,11 @@
   height: 80px;
   justify-content: space-between;
   margin-bottom: 2px;
-  padding: 10px 15px;
+  padding: 0px 15px;
   @include align-items(center);
   @include flexbox();
   img {
     height: 100%;
-    width: 15%;
   }
   .modal-items-quantity {
     margin-left: 25px;
