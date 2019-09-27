@@ -33,7 +33,7 @@ node server.js
 
 ![Home page](https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/Home.JPG)
 
-![Product page](https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/Product.JPG)
+![Product page](https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/product.JPG)
 
 ![Login page](https://github.com/preetisachdeva1/shopping-cart-assignment/blob/develop/Performance/login.JPG)
 
