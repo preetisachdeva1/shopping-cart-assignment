@@ -9,12 +9,12 @@ class Login extends Component {
     return (
       <>
         <Header />
-        <section className="row login">
-          <div className="login-detail">
+        <section className="row form-container">
+          <div className="form-container-detail">
              <h2>{i18next.t("Login")}</h2>
              <span>{i18next.t("LoginDetail")}</span>
           </div>
-          <div className="login-form">
+          <div className="form-container-form">
             <LoginForm />
           </div>
         </section>
