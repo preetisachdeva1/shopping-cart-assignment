@@ -68,7 +68,7 @@ export const removeProductAction = id => {
   };
 };
 
-// Toggle cart items
+// Toggle cart items function
 export const toggleCartItem = () => ({
   type: TOGGLE_CART_ITEM
 });
