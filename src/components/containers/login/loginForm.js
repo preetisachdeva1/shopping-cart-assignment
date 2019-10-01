@@ -11,7 +11,7 @@ class Login extends Component {
         <Header />
         <section className="row form-container">
           <div className="form-container-detail">
-             <h2>{i18next.t("Login")}</h2>
+             <h1>{i18next.t("Login")}</h1>
              <span>{i18next.t("LoginDetail")}</span>
           </div>
           <div className="form-container-form">

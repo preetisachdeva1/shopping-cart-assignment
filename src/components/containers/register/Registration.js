@@ -11,7 +11,7 @@ class Registration extends Component {
         <Header />
         <section className="row form-container">
           <div className="form-container-detail">
-             <h2> {i18next.t("Signup")}</h2>
+             <h1> {i18next.t("Signup")}</h1>
              <span> {i18next.t("SignupDetail")}</span>
           </div>
           <div className="form-container-form">
