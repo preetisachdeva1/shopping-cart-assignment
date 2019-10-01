@@ -6,6 +6,10 @@
     @include viewport(small-mobile) {
       display: none;
     }
+    ul {
+      width: 100%;
+      display: inline;
+    }
     .category-name {
       padding: 14px;
       cursor: pointer;

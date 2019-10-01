@@ -5,13 +5,13 @@ class Offer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    slideIndex: 1
-  };
-  this.plusDivs = this.plusDivs.bind(this);
-  this.currentDiv = this.currentDiv.bind(this);
-}
+      slideIndex: 1
+    };
+    this.plusDivs = this.plusDivs.bind(this);
+    this.currentDiv = this.currentDiv.bind(this);
+  }
 
-  plusDivs(n){
+  plusDivs(n) {
     n = this.state.slideIndex + n;
     if (n > 5) {
       this.setState({ slideIndex: 1 });
@@ -21,7 +21,7 @@ class Offer extends React.Component {
       this.setState({ slideIndex: n });
     }
   };
-  showDivs(n){};
+  showDivs(n) { };
   currentDiv(n) {
     this.setState({ slideIndex: n });
   };
@@ -31,10 +31,10 @@ class Offer extends React.Component {
   }
   render() {
     return (
-      <section>
-        <div className="content">
-          {[1, 2, 3, 4, 5].map((val, i) => {
-            return (
+      <section className="content">
+        {[1, 2, 3, 4, 5].map((val, i) => {
+          return (
+            <figure>
               <img
                 key={val}
                 className={classnames({
@@ -44,31 +44,31 @@ class Offer extends React.Component {
                 alt={`offer${val}`}
                 src={`../../images/offers/offer${val}.jpg`}
               />
+            </figure>
+          );
+        })}
+
+        <div className="nav">
+          <div className="nav--arrow left" onClick={() => this.plusDivs(-1)}>
+            PREV
+            </div>
+          <div className="nav--arrow right" onClick={() => this.plusDivs(1)}>
+            NEXT
+            </div>
+        </div>
+        <div className="nav nav-badge">
+          {[1, 2, 3, 4, 5].map((val, i) => {
+            return (
+              <span
+                className={classnames({
+                  "nav--badge--selected": this.state.slideIndex === val,
+                  "nav--badge": 1
+                })}
+                key={val}
+                onClick={() => this.currentDiv(val)}
+              ></span>
             );
           })}
-
-          <div className="nav">
-            <div className="nav--arrow left" onClick={() => this.plusDivs(-1)}>
-              PREV
-            </div>
-            <div className="nav--arrow right" onClick={() => this.plusDivs(1)}>
-              NEXT
-            </div>
-          </div>
-          <div className="nav nav-badge">
-            {[1, 2, 3, 4, 5].map((val, i) => {
-              return (
-                <span
-                  className={classnames({
-                    "nav--badge--selected": this.state.slideIndex === val,
-                    "nav--badge": 1
-                  })}
-                  key={val}
-                  onClick={() => this.currentDiv(val)}
-                ></span>
-              );
-            })}
-          </div>
         </div>
       </section>
     );

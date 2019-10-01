@@ -12,6 +12,14 @@
   -moz-box-shadow: $width $color;
   box-shadow: $width $color;
 }
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
 
 @mixin flex-direction($direction) {
   -webkit-flex-direction: $direction;

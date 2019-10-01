@@ -11,18 +11,20 @@ const ProductList = props => {
   const { data, filterProductsByCategory } = props;
   console.log("filterProductsByCategory", filterProductsByCategory, props.filterProductsByCategory);
   return (
-    <div className="products-container">
-      <div className="prod-image">
+    <article className="products-container">
+      <section>
+      <figure className="prod-image">
         <img src={data.imageUrl} alt={data.name}/> 
-      </div>
-      <div className="prod-description">
+      </figure>
+      </section>
+      <section className="prod-description">
         <h2>{data.name}</h2>
         <p>
           {data.description}
         </p>
         <Link to="/product" className="btn" onClick={(e) => filterProductsByCategory(data.id)}>{i18next.t("Explore")} {data.name}</Link>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 

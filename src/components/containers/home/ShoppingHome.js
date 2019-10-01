@@ -31,7 +31,7 @@ class Home extends Component {
       <>
           <Header />
           <Banner />
-          <div className="row">{data}</div>
+          <section className="row">{data}</section>
           <Footer />
       </>
     );

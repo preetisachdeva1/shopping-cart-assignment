@@ -39,7 +39,7 @@ class ProductDetail extends Component {
       .filter(item => item.category === categoryId || categoryId === "")
       .map((products, index) => {
         return (
-          <div key={products.id} className="product-item">
+          <article key={products.id} className="product-item">
             <h2>{products.name}</h2>
             <div className="item-wrapper">
               <img src={products.imageURL} alt={products.name} />
@@ -74,30 +74,37 @@ class ProductDetail extends Component {
             >
               {i18next.t("BuyNowPrice")}.{products.price}
             </div>
-          </div>
+          </article>
         );
       });
     categoryList = categories
       .filter(item => item.enabled)
       .map((category, index) => {
         return (
-          <a href="#"
+          <li
             key={category.id}
             className={`category-name ${
               category.id === categoryId ? "selected-link" : ""
-            }`}
+              }`}
             onClick={() => filterProductsByCategory(category.id)}
           >
             {category.name}
-          </a>
+          </li>
         );
       });
     return (
       <>
         <Header />
-        <section>
-          <div className="row">
-            <div className="select">
+        <section className="row product-container">
+          <aside className="category-block">
+            <nav>
+              <ul>
+                {categoryList}
+              </ul>
+            </nav>
+          </aside>
+          <section className="category-list">{productList}</section>
+          {/* <div className="select">
             <select onChange={(e) => filterProductsByCategory(e.target.value)}>
               <option value="">Select category</option>
 
@@ -106,12 +113,7 @@ class ProductDetail extends Component {
             .map(category => (
                 <option value={category.id} key={category.id}>{category.name}</option> ))}
               </select>
-            </div>
-            <div className="product-container">
-              <div className="category-block">{categoryList}</div>
-              <div className="category-list">{productList}</div>
-            </div>
-          </div>
+            </div> */}
         </section>
         <Footer />
       </>
