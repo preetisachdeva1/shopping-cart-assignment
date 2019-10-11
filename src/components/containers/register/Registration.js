@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../../shared/Header";
-import RegisterForm from '../../views/Register/RegisterForm';
+import RegisterForm from "../../views/Register/RegisterForm";
 import i18next from "i18next";
 import Footer from "../../shared/Footer";
 
@@ -10,13 +10,15 @@ class Registration extends Component {
       <>
         <Header />
         <section className="row form-container">
-          <div className="form-container-detail">
-             <h1> {i18next.t("Signup")}</h1>
-             <span> {i18next.t("SignupDetail")}</span>
-          </div>
-          <div className="form-container-form">
+          <article  className="form-container-detail">
+            <header>
+              <h1> {i18next.t("Signup")}</h1>
+            </header>
+            <p> {i18next.t("SignupDetail")}</p>
+          </article>
+          <article className="form-container-form">
             <RegisterForm />
-          </div>
+          </article>
         </section>
         <Footer />
       </>

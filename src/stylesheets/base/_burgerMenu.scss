@@ -52,7 +52,7 @@
   width: 100% !important;
 }
 .item-bag {
-  & > .small-icon {
+  & > .icon {
     color: map-get($color, "color-white");
     padding-right: 10px;
     font-size: calculate-rem(26px);

@@ -72,15 +72,16 @@ class LoginForm extends React.Component {
       return <Redirect to="/home" />;
     }
     return (
-      <div>
-        <form
+      <section>
+        <form role="form"
+          aria-label="login"
           name="userLoginForm"
           method="post"
           onSubmit={this.submituserRegistrationForm}
           noValidate
         >
           <div className="input-group">
-            <label className={this.state.fields.username ? "valid" : ""}>
+            <label aria-label="Email" className={this.state.fields.username ? "valid" : ""}>
               {i18next.t("Email")}
             </label>
             <input
@@ -94,7 +95,7 @@ class LoginForm extends React.Component {
             <div className="errorMsg">{this.state.errors.username}</div>
           </div>
           <div className="input-group">
-            <label className={this.state.fields.password ? "valid" : ""}>
+            <label aria-label="Password" className={this.state.fields.password ? "valid" : ""}>
               {i18next.t("Password")}
             </label>
             <input
@@ -107,11 +108,11 @@ class LoginForm extends React.Component {
 
             <div className="errorMsg">{this.state.errors.password}</div>
           </div>
-          <button className="btn-primary" type="submit">
+          <button aria-label="login" className="btn-primary" type="submit">
             {i18next.t("Login")}
           </button>
         </form>
-      </div>
+      </section>
     );
   }
 }

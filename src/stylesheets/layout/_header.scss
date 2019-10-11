@@ -1,59 +1,30 @@
 @import "../abstracts/variables";
 
-.main-header {
+.header {
   padding: 7px 7px 0 7px;
   font-size: calculate-rem(15px);
   position: relative;
-  .logo {
-    img {
-      @include viewport(small-mobile) {
-        width: 100%;
-        max-width: 110px;
-        height: auto;
+  .header__left {
+    padding-top: 49px;
+    padding-left: 6%;
+    @include flex-grow(1);
+  }
+  .header__right {
+    .header__right--bag {
+      padding: 16px;
+      margin-top: 5px;
+      cursor: pointer;
+      margin-bottom: 0;
+      background-color: map-get($color, "color-grey-shd");
+      & > .icon {
+        color: map-get($color, "btn-border-color");
+        padding-right: 10px;
+        font-size: calculate-rem(26px); 
       }
     }
   }
   #menu-hamburger{
     display: none;
-    @include viewport(small-mobile) {
-      display: block
-    }
-  }
-  .header-nav {
-    padding-top: 49px;
-    padding-left: 6%;
-    @include flex-grow(1);
-    @include viewport(small-mobile) {
-      display: none;
-    }
-  }
-  .nav-two {
-    .item-bag {
-      padding: 16px;
-      margin-top: 5px;
-      cursor: pointer;
-      background-color: map-get($color, "color-grey-shd");
-      & > .small-icon {
-        color: map-get($color, "btn-border-color");
-        padding-right: 10px;
-        font-size: calculate-rem(26px); //!important;
-        @include viewport(small-mobile) {
-          color:  map-get($color, "btn-border-color");
-          padding-right: 10px;
-          font-size: calculate-rem(26px);
-        }
-      }
-      @include viewport(small-mobile) {
-        padding: 10px 25px 18px 18px;
-        margin-top: 0px;
-        display: none
-      }
-    }
-    .links {
-      @include viewport(small-mobile) {
-        display: none;
-      }
-    }
   }
   @include flexbox();
   @include shadow(0px 5px 9px, map-get($color, "color-grey-shd"));

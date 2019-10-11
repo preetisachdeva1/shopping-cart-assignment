@@ -20,11 +20,11 @@ class Offer extends React.Component {
     } else {
       this.setState({ slideIndex: n });
     }
-  };
-  showDivs(n) { };
+  }
+  showDivs(n) {}
   currentDiv(n) {
     this.setState({ slideIndex: n });
-  };
+  }
 
   componentDidMount() {
     this.showDivs(this.slideIndex);
@@ -34,7 +34,7 @@ class Offer extends React.Component {
       <section className="content">
         {[1, 2, 3, 4, 5].map((val, i) => {
           return (
-            <figure>
+            <figure aria-label="offer">
               <img
                 key={val}
                 className={classnames({
@@ -48,14 +48,22 @@ class Offer extends React.Component {
           );
         })}
 
-        <div className="nav">
-          <div className="nav--arrow left" onClick={() => this.plusDivs(-1)}>
+        <nav className="nav" role="navigation">
+          <button
+            aria-label="previous"
+            className="nav--arrow left"
+            onClick={() => this.plusDivs(-1)}
+          >
             PREV
-            </div>
-          <div className="nav--arrow right" onClick={() => this.plusDivs(1)}>
+          </button>
+          <button
+            aria-label="next"
+            className="nav--arrow right"
+            onClick={() => this.plusDivs(1)}
+          >
             NEXT
-            </div>
-        </div>
+          </button>
+        </nav>
         <div className="nav nav-badge">
           {[1, 2, 3, 4, 5].map((val, i) => {
             return (

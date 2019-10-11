@@ -1,0 +1,41 @@
+@include viewport(small-mobile) {
+  .header {
+    .header__logo {
+      img {
+        width: 100%;
+        max-width: 110px;
+        height: auto;
+      }
+    }
+    .header__left {
+      display: none;
+    }
+    .header__right {
+      .header__right--bag {
+        padding: 10px 25px 18px 18px;
+        margin-top: 0px;
+        display: none;
+      }
+      .header__right--links {
+        display: none;
+      }
+    }
+    #menu-hamburger {
+      display: block;
+    }
+  }
+  .products {
+    .products--image {
+      img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+      }
+    }
+  }
+  .product { 
+    .categories {
+      display: none;
+    }
+  }
+}

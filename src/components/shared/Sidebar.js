@@ -28,13 +28,14 @@ class Sidebar extends React.Component {
         {...this.props}
       >
         <a
+          role="link"
           onClick={() => {
             this.closeMenu();
             this.props.dispatch(toggleCartItem());
           }}
         >
           <div className="menu-item item-bag">
-            <i className="fa fa-shopping-cart small-icon"></i>
+            <i className="fa fa-shopping-cart icon"></i>
             <span>
               {this.props.totalItem} {i18next.t("items")}
             </span>

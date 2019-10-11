@@ -33,47 +33,50 @@ class ProductDetail extends Component {
       categoryId,
       addProductAction
     } = this.props;
-    //const { error, isLoaded } = this.state;
     let productList, categoryList;
     productList = products
       .filter(item => item.category === categoryId || categoryId === "")
       .map((products, index) => {
         return (
-          <article key={products.id} className="product-item">
+          <article  key={products.id} className="product-list__item">
             <h2>{products.name}</h2>
-            <div className="item-wrapper">
-              <img src={products.imageURL} alt={products.name} />
-              <div className="prod-descrip">{products.description}</div>
+            <div className="product-list__item__wrapper">
+              <figure aria-label="product image">
+                <img src={products.imageURL} alt={products.name} />
+              </figure>
+              <p className="product-list__item__wrapper--description">{products.description}</p>
             </div>
-            <div className="item-wrapper-mobile">
+            <div className="product-list__item__wrapper-mobile">
               <img src={products.imageURL} alt={products.name} />
-              <div className="item-detail-wrapper">
-                <div className="prod-descrip">{products.description}</div>
-                <div
+              <div className="product-list__item__wrapper-mobile--detail">
+                <p className="product-list__item__wrapper--description">{products.description}</p>
+                <button
+                  aria-label="add"
                   className="btn-primary btn"
                   onClick={() => addProductAction(products.id)}
                 >
                   {i18next.t("BuyNowPrice")}.{products.price}
-                </div>
+                </button>
               </div>
             </div>
-            <div className="product-price">
-              <div className="mrp">
+            <div className="product-list__item__price">
+              <p className="product-list__item__price--mrp">
                 {i18next.t("BuyRs")}.{products.price}
-              </div>
-              <a href="#"
+              </p>
+              <button
                 className="btn"
+                aria-label="add"
                 onClick={() => addProductAction(products.id)}
               >
                 {i18next.t("BuyNow")}
-              </a>
+              </button>
             </div>
-            <div
+            <p
               className="btn-primary btn"
               onClick={() => addProductAction(products.id)}
             >
               {i18next.t("BuyNowPrice")}.{products.price}
-            </div>
+            </p>
           </article>
         );
       });
@@ -83,7 +86,7 @@ class ProductDetail extends Component {
         return (
           <li
             key={category.id}
-            className={`category-name ${
+            className={`categories__name ${
               category.id === categoryId ? "selected-link" : ""
               }`}
             onClick={() => filterProductsByCategory(category.id)}
@@ -95,25 +98,15 @@ class ProductDetail extends Component {
     return (
       <>
         <Header />
-        <section className="row product-container">
-          <aside className="category-block">
-            <nav>
+        <section className="row product">
+          <aside className="categories">
+            <nav role="navigation">
               <ul>
                 {categoryList}
               </ul>
             </nav>
           </aside>
-          <section className="category-list">{productList}</section>
-          {/* <div className="select">
-            <select onChange={(e) => filterProductsByCategory(e.target.value)}>
-              <option value="">Select category</option>
-
-              {this.props.categories
-            .filter(category => category.enabled)
-            .map(category => (
-                <option value={category.id} key={category.id}>{category.name}</option> ))}
-              </select>
-            </div> */}
+          <section className="product-list">{productList}</section>
         </section>
         <Footer />
       </>

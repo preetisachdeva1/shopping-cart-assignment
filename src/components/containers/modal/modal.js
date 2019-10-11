@@ -28,21 +28,21 @@ class Modal extends Component {
     } = this.props;
     return (
       <>
-        <div className={`modal ${this.state.show ? "show" : "hide"}`}>
-          <div className="modal-content">
-            <div className="modal-heading">
-              <div>
+        <section className={`modal ${this.state.show ? "show" : "hide"}`}>
+          <section className="modal-content">
+            <article  className="modal-heading">
+              <header>
                 {i18next.t("Mycart")} {this.state.show}{" "}
                 <span>
                   ({totalItem} {i18next.t("Item")})
                 </span>
-              </div>
+              </header>
               <i
                 className="ion-android-close icon-close"
                 onClick={toggleCartItem}
               ></i>
-            </div>
-            <div className="modal-wrapper">
+            </article>
+            <article  className="modal-wrapper">
               {products.length > 0 ? (
                 <CartItem data={products} />
               ) : (
@@ -55,9 +55,9 @@ class Modal extends Component {
                   </div>
                 </div>
               )}
-            </div>
+            </article>
             {products.length > 0 ? (
-              <div className="cart-footer">
+              <article  className="cart-footer">
                 <div className="cart-footer-promo">
                   {i18next.t("PromoApplied")}
                 </div>
@@ -68,17 +68,17 @@ class Modal extends Component {
                     {i18next.t("RS")}.{totalPrice}
                   </span>
                 </div>
-              </div>
+              </article>
             ) : (
-              <div
+              <article 
                 className="cart-footer-checkout cart-footer-start-shopping"
                 onClick={toggleCartItem}
               >
                 <span>{i18next.t("StartShopping")}</span>
-              </div>
+              </article>
             )}
-          </div>
-        </div>
+          </section>
+        </section>
       </>
     );
   }

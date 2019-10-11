@@ -1,16 +1,13 @@
-.product-container {
-  .category-block {
+.product {
+  .categories {
     width: 25%;
     font-size: calculate-rem(16px);
     background-color: map-get($color, "color-grey-shd");
-    @include viewport(small-mobile) {
-      display: none;
-    }
     ul {
       width: 100%;
       display: inline;
     }
-    .category-name {
+    &__name {
       padding: 14px;
       cursor: pointer;
       display: block;
@@ -23,9 +20,9 @@
       color: map-get($color, "color-white");
     }
   }
-  .category-list {
+  .product-list {
     width: 75%;
-    .product-item {
+    &__item {
       margin-top: 2%;
       width: 25%;
       margin-bottom: 3%;
@@ -33,35 +30,23 @@
       @include justify-content(space-between);
       @include flexbox();
       @include flex-direction(column);
-      img {
-        width: 100%;
-        height: auto;
-        @extend .no-margin;
-        @include viewport(small-tablet) {
-          width: 50%;
-        }
-      }
+  
       h2 {
         font-size: calculate-rem(16px);
         color: map-get($color, "color-black");
         padding: 15px;
         @include font-weight("bold");
       }
-      .prod-descrip {
-        padding: 5px;
-        font-size: calculate-rem(14px);
-        background-color: map-get($color, "color-para");
-        word-spacing: 1px;
-        @include border-radius(2%);
-      }
-      .product-price {
-        font-size: calculate-rem(14px);
-        .mrp {
+    
+      &__price {
+        font-size: calculate-rem(12px);
+        &--mrp {
           color: map-get($color, "color-black");
           @include align-items(center);
         }
         .btn {
           cursor: pointer;
+          font-size: calculate-rem(12px);
           @extend .btn-primary;
         }
         @include viewport(small-tablet) {
@@ -73,6 +58,7 @@
       }
       .btn-primary {
         margin: 4%;
+        width: auto;
         @extend .btn-primary;
         @extend .no-display;
         @include viewport(small-tablet) {
@@ -80,7 +66,22 @@
           margin: 0 3% 4%;
         }
       }
-      .item-wrapper {
+      &__wrapper {
+        img {
+          width: 100%;
+          height: auto;
+          @extend .no-margin;
+          @include viewport(small-tablet) {
+            width: 50%;
+          }
+        }
+        &--description {
+          padding: 5px;
+          font-size: calculate-rem(14px);
+          background-color: map-get($color, "color-para");
+          word-spacing: 1px;
+          @include border-radius(2%);
+        }
         @include viewport(small-tablet) {
           display: flex;
         }
@@ -94,19 +95,14 @@
       @include viewport(small-mobile) {
         width: 100%;
       }
-      .item-wrapper-mobile {
+      &__wrapper-mobile {
         margin: 3%;
-        .item-detail-wrapper {
+        img { width:50%}
+        &--detail {
           @include viewport(small-mobile) {
             @include flexbox();
             @include flex-direction(column);
             @include justify-content(space-between);
-          }
-          img,
-          .btn-primary {
-            @include viewport(small-mobile) {
-              margin: 0;
-            }
           }
         }
         @extend .no-display;

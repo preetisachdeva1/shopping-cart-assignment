@@ -12,7 +12,7 @@ const scrollToTop = () => {
   return '';
 };
 const Routes = props => (
-  <main>
+  <main role="main">
     <Router onUpdate={scrollToTop}>
       <Route exact path="/" component={Home} />
       <Route  path="/home" component={Home} />

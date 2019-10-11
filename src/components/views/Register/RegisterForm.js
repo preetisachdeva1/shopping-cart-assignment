@@ -91,15 +91,17 @@ class RegistrationForm extends React.Component {
       return <Redirect to="/home" />;
     }
     return (
-      <div>
+      <section>
         <form
+          role="form"
+          aria-label="registration"
           name="userLoginForm"
           method="post"
           onSubmit={this.submituserRegistrationForm}
           noValidate
         >
           <div className="input-group">
-            <label className={this.state.fields.fname ? "valid" : ""}>
+            <label aria-label="first name" className={this.state.fields.fname ? "valid" : ""}>
               {i18next.t("fname")}
             </label>
             <input
@@ -113,7 +115,7 @@ class RegistrationForm extends React.Component {
             <div className="errorMsg">{this.state.errors.fname}</div>
           </div>
           <div className="input-group">
-            <label className={this.state.fields.lname ? "valid" : ""}>
+            <label aria-label="last name" className={this.state.fields.lname ? "valid" : ""}>
               {i18next.t("lname")}
             </label>
             <input
@@ -127,7 +129,7 @@ class RegistrationForm extends React.Component {
             <div className="errorMsg">{this.state.errors.lname}</div>
           </div>
           <div className="input-group">
-            <label className={this.state.fields.emailid ? "valid" : ""}>
+            <label aria-label="Email" className={this.state.fields.emailid ? "valid" : ""}>
               {i18next.t("Email")}
             </label>
             <input
@@ -141,7 +143,7 @@ class RegistrationForm extends React.Component {
             <div className="errorMsg">{this.state.errors.emailid}</div>
           </div>
           <div className="input-group">
-            <label className={this.state.fields.password ? "valid" : ""}>
+            <label aria-label="Password" className={this.state.fields.password ? "valid" : ""}>
               {i18next.t("Password")}
             </label>
             <input
@@ -155,7 +157,7 @@ class RegistrationForm extends React.Component {
             <div className="errorMsg">{this.state.errors.password}</div>
           </div>
           <div className="input-group">
-            <label className={this.state.fields.cpassword ? "valid" : ""}>
+            <label aria-label="confirm password" className={this.state.fields.cpassword ? "valid" : ""}>
               {i18next.t("ConPassword")}
             </label>
             <input
@@ -168,11 +170,11 @@ class RegistrationForm extends React.Component {
 
             <div className="errorMsg">{this.state.errors.cpassword}</div>
           </div>
-          <button className="btn-primary" type="submit">
+          <button aria-label="registration" className="btn-primary" type="submit">
             {i18next.t("Signup")}
           </button>
         </form>
-      </div>
+      </section>
     );
   }
 }

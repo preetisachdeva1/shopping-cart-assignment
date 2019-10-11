@@ -1,6 +1,6 @@
 import React from "react";
 import i18next from "i18next";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   fetchProducts,
   filterProductsByCategory
@@ -9,20 +9,28 @@ import { connect } from "react-redux";
 
 const ProductList = props => {
   const { data, filterProductsByCategory } = props;
-  console.log("filterProductsByCategory", filterProductsByCategory, props.filterProductsByCategory);
+  console.log(
+    "filterProductsByCategory",
+    filterProductsByCategory,
+    props.filterProductsByCategory
+  );
   return (
-    <article className="products-container">
+    <article  className="products">
       <section>
-      <figure className="prod-image">
-        <img src={data.imageUrl} alt={data.name}/> 
-      </figure>
+        <figure className="products--image">
+          <img src={data.imageUrl} alt={data.name} />
+        </figure>
       </section>
-      <section className="prod-description">
+      <section className="products__description">
         <h2>{data.name}</h2>
-        <p>
-          {data.description}
-        </p>
-        <Link to="/product" className="btn" onClick={(e) => filterProductsByCategory(data.id)}>{i18next.t("Explore")} {data.name}</Link>
+        <p>{data.description}</p>
+        <Link
+          to="/product"
+          className="btn"
+          onClick={e => filterProductsByCategory(data.id)}
+        >
+          {i18next.t("Explore")} {data.name}
+        </Link>
       </section>
     </article>
   );
@@ -33,5 +41,7 @@ const mapDispatchToProps = dispatch => {
     filterProductsByCategory: id => dispatch(filterProductsByCategory(id))
   };
 };
-export default connect('', mapDispatchToProps)(ProductList);
-
+export default connect(
+  "",
+  mapDispatchToProps
+)(ProductList);

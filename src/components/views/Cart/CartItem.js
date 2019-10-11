@@ -8,10 +8,12 @@ class CartItem extends React.Component {
   render() {
     const { cartItem, addProductAction, removeProductAction } = this.props;
     const itemData = cartItem.product.map((item, index) => (
-      <div className="modal-items" key={index}>
-        <img src={item.product.imageURL} alt={item.product.name}></img>
+      <section className="modal-items" key={index}>
+        <figure aria-label="product image">
+          <img src={item.product.imageURL} alt={item.product.name} />
+        </figure>
         <div className="modal-items-quantity">
-          <div className="product-name">{item.product.name}</div>
+          <p className="product-name">{item.product.name}</p>
           <div className="product-info">
             <i className="ion-minus-circled quan-icon" onClick={() => removeProductAction(item.product.id)}></i>
             <span>{item.quantity}</span>
@@ -26,15 +28,17 @@ class CartItem extends React.Component {
             </span>
           </div>
         </div>
-      </div>
+      </section>
     ));
     return (
       <>
         {itemData}
-        <div className="lowest-price">
-          <img src={LOWSET_PRICE_URL} alt="lowest price"></img>
+        <section className="lowest-price">
+          <figure>
+            <img src={LOWSET_PRICE_URL} alt="lowest price"/>
+           </figure> 
           <span>{i18next.t("LowestPrice")}</span>
-        </div>
+        </section>
       </>
     );
   }

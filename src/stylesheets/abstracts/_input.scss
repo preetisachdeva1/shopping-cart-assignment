@@ -34,8 +34,7 @@
     -webkit-transition: 0.2s ease all;
   }
 
-  input:focus ~ label,
-  .valid {
+  input:focus ~ label, .valid {
     top: -20px;
     font-size: calculate-rem(14px);
     color: map-get($color , "color-blue" );

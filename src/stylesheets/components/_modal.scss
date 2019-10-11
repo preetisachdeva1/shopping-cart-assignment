@@ -24,7 +24,7 @@
       i {
         cursor: pointer;
       }
-      div {
+      header {
         font-weight: 600;
         padding: 16px;
         span {
@@ -70,6 +70,7 @@
       width: 100%;
       &-promo {
         padding: 8px;
+        font-size: calculate-rem(16px);
       }
       &-checkout {
         margin: 10px;

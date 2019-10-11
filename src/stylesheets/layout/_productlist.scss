@@ -1,21 +1,16 @@
-.products-container {
+.products {
   padding: 40px 20px;
   @include align-items(center);
   @include flexbox();
-  .prod-image {
+  .products--image {
     @include flex-grow(1);
     img {
       height: 150px;
       width: auto;
       margin: 0 5%;
-      @include viewport(small-mobile) {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-      }
     }
   }
-  .prod-description {
+  .products__description {
     font-size: calculate-rem(16px);
     @include flex-grow(2);
     @extend .txt-align;

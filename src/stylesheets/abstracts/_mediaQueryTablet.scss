@@ -1,0 +1,8 @@
+@include viewport(small-tablet) {
+  .form-container {
+    flex-direction: column;
+    &-detail {
+      margin: 30px 30px 0 30px;
+    }
+  }
+}
